@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <div class="sidebar" data-color='red' data-image="" *ngIf="abc">
+        <app-sidebar ></app-sidebar>
+        <div class="sidebar-background" style="background-image: url(../assets/img/sptbi_big.png);"></div>
+    </div>
+    <div class="main-panel">
+        <app-navbar class="navbar-fixed-top" (hideSide)="hide($event)"></app-navbar>
+        <router-outlet></router-outlet>
+        <div *ngIf="isMaps('maps')">
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>

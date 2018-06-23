@@ -1,0 +1,44 @@
+.form-control, .form-group .form-control {
+    border: 0;
+    background-image: linear-gradient(#2515d6, #2515d6), linear-gradient(#D2D2D2, #D2D2D2);
+}
+
+.card [data-background-color="red"] {
+    background: linear-gradient(60deg, #110d42, #d3d2e8);
+}
+.btn{
+    background-color:#1a3f74;
+}
+.tablink {
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 50%;
+    }
+tr.txt th{
+    text-align: center;
+    font-size:15px;
+    font-weight: 700;
+}
+td{
+    text-align: left;
+}
+tr.list:hover{
+    -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+    box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+}
+.heading{
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.5em;
+}
+.viewingForm{
+    background-image: url("/Users/aashayjain611/Downloads/SP-TBI-Website-master-5/src/assets/img/formbg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,21 @@
+<div class="main-content">
+
+    <div class="container-fluid" >
+            <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <ngb-tabset [justify]="'center'">
+                            <ngb-tab title="View Panelists">
+                                <ng-template ngbTabContent>
+                                    <app-table-list></app-table-list>
+                                  </ng-template>
+                            </ngb-tab>
+                            <ngb-tab title="View Ideas">
+                                <ng-template ngbTabContent>
+                                    <app-forms></app-forms>
+                                </ng-template>
+                            </ngb-tab>
+                        </ngb-tabset>
+                    </div>
+            </div>
+    </div>
+</div>

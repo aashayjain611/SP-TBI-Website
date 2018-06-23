@@ -1,0 +1,116 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">List of StartUps</h4>
+                        <p class="category" style="font-size:20px">
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead >
+                                <tr class="txt">
+                                    <th>Startup Name</th>
+                                    <th>Startup Idea</th>
+                                    <th>Category</th>
+                                    <th>Panelist</th>
+                                    <th>Rating</th>
+                                    <th>Note</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr id="list" class="list" (click)="goToForm(stup.formid)" *ngFor="let stup of startups | paginate: {itemsPerPage: 3, currentPage:page, id: '1'}; let i = index" >
+                                            <td>{{stup.startupName}}</td>
+                                            <td>{{stup.startupIdea}}</td>
+                                            <td>{{stup.category}}</td>
+                                            <td>{{stup.panelist}}</td>
+                                            <td ></td>
+                                            <td ></td>
+                                        </tr>
+                            </tbody>
+                        </table>
+                        <pagination-controls (pageChange)="page = $event" id="1"
+                            maxSize="5"
+                            directionLinks="true"
+                            autoHide="true">
+                        </pagination-controls>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div class="row" id="form" name="form">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title">Startup Form</h4>
+                    <p class="category">Details about selected startup</p>
+                </div>
+                <div class="card-content viewingForm ">
+                                
+                        <div><h3 class="text-center">{{currentevalStartup.startupName}}</h3></div>
+                        <table>
+                            <thead>
+                                <th style="width:200px"></th>
+                                <th></th>
+                            </thead>
+                            <tbody style="font-size:15px" >
+                                <tr>
+                                    <td class="heading">IDEA</td>
+                                    <td>{{currentevalStartup.startupIdea}}</td>
+                                </tr><br/>
+                                <tr>
+                                        <td class="heading">DESCRIPTION</td>
+                                        <td>{{currentevalStartup.description}}</td>
+                                    </tr><br/>
+                                <tr>
+                                    <td class="heading" >Legal Entity</td>
+                                    <td>{{currentevalStartup.legalEntity}}</td>
+                                </tr><br/>
+                                <tr>
+                                    <td class="heading" >Working MOdel</td>
+                                    <td>{{currentevalStartup.workingIdea}}</td>
+                                </tr><br/>
+                                <tr>
+                                    <td class="heading" >Operational Revenue</td>
+                                    <td>{{currentevalStartup.operationalRevenue}}</td>
+                                </tr><br/>
+                                <tr>
+                                    <td class="heading">primary Customer</td>
+                                    <td>{{currentevalStartup.primaryCustomer}}</td>
+                                </tr><br/>
+                                <tr>
+                                    <td class="heading">Targetted Pain Point</td>
+                                    <td>{{currentevalStartup.painPoint}}</td>
+                                </tr><br/>
+                                <tr>
+                                        <td class="heading">Competitors</td>
+                                        <td>{{currentevalStartup.competitors}}</td>
+                                    </tr><br/>
+                               
+                                <tr>
+                                    <td class="heading">Founders</td>
+                                    <td >
+                                        <div class="row" *ngFor="let f of currentevalStartup.founders">
+                                            <div class="col-md-4">{{f.name}}</div>   
+                                            <div class="col-md-6">{{f.email}}</div>   
+                                            <div class="col-md-2">{{f.contact}}</div> 
+                                            <br/>
+                                        </div>  
+                                    </td>
+                                </tr><br/>
+                            </tbody>
+                        </table>
+                  <div class="form-group ">
+                    <button type="button" class="btn btn-round" (click)="goToTop('list')" style="background-color:#1a3f74;font-size:15px;">Back to list</button>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<nav class="navbar navbar-transparent navbar-absolute">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" (click)="sidebarToggle()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="#">{{getTitle()}}</a> -->
+            <div ng-if="Logged; then block else block2">
+                <ng-template #block>
+                <a class="navbar-brand" href="#">Add Panelist</a>
+                <a class="navbar-brand" href="#">View Panelist</a>
+                <a class="navbar-brand" href="#">View Ideas</a>
+                </ng-template>
+                <ng-template #block2>
+                    <a class="navbar-brand" href="#">Add Panelist</a>
+                </ng-template>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                            <button (click)="Dash()" type="button" rel="tooltip" title="Dashboard" class="btn btn-danger btn-simple"><i class="material-icons" style="font-size:20px;color:black;padding-bottom:5px">dashboard</i></button>
+                        </li>
+                        <li *ngIf="Logged">
+                            <button onclick="document.getElementById('login').style.display='block'" type="button" rel="tooltip" title="LOG IN" class="btn btn-danger btn-simple"><i class="material-icons" style="font-size:20px;color:black;padding-bottom:5px" >person</i></button>
+                        </li>
+                        <li *ngIf="!Logged">
+                                <button type="button" rel="tooltip" title="LOG OUT" class="btn btn-danger btn-simple">
+                            <a (click)="logout()">
+                                    <span style="font-size:17px;color:black;" class="glyphicon glyphicon-log-out"></span>
+                            </a></button>
+                        </li>
+            </ul>
+        </div>
+        <div *ngIf="Logged" id="login" class="modal"> 
+            <form class="modal-content animate">
+              <div class="imgcontainer">
+                <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
+              </div>
+              <div class="container">
+                  
+                <span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;<label for="uname"><b>Username</b></label><br/>
+                <input #uname type="text" name="uname" id="uname" required />
+              
+                <br/>
+                <span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;<label for="psw"><b>Password</b></label><br/>
+                <input #psw type="password" name="psw" id="psw" required />
+                
+                
+              </div>
+          
+              <div class="container" style="position:center;width:75%">
+                <button class="login" id="login" type="submit" (click)="Login($event)">Login</button>
+            </div>      
+                
+            </form>
+        </div>
+    </div>
+</nav>
+ <!-- <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+          
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                  
+                <button type="submit">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+              </div>
+          
+              <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div> -->

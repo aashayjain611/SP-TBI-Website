@@ -1,0 +1,113 @@
+<div class="main-content">
+    <div class="container-fluid">
+          
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Panelists</h4>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <form (submit)="MakeObject($event)">
+                        <div class="row">
+                            <div class="col-md-2">
+                                    <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">PanelistID</label>
+                                            <input type="text" class="form-control" required>
+                                        </div>
+                            </div>
+                            <div class="col-md-2">
+                                    <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Password</label>
+                                            <input type="password" class="form-control" required>
+                                        </div>   
+                            </div>
+                            <div class="col-md-2">
+                                    <label>Round</label>
+                                    <div>
+                                        <select required>
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </div>  
+                            </div>
+                            <div class="col-md-2">
+                                    <label>Category</label>
+                                    <div>
+                                        <select required style="width:max-content;padding-left:5px;padding-right:5px;text-align:center">
+                                            <option>CONSUMER</option>
+                                            <option>E-COMMERCE</option>
+                                            <option>EDUCATION</option>
+                                            <option>HEALTHCARE</option>
+                                            <option>LOGISTICS</option>
+                                            <option>MANUFACTURING</option>
+                                            <option>TECHNOLOGY</option>
+                                        </select>
+                                    </div>    
+                            </div>
+                            <div class="col-md-2">
+                                    <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Selection-Limit</label>
+                                            <input type="number" class="form-control" required min="0">
+                                        </div>   
+                            </div>
+                            <div class="col-md-2">
+                                    <button type="submit" class="btn pull-right">Add</button>           
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <hr/>
+                    <div class="category">
+                            <div class="col-md-6">
+                                <h5>Category</h5>
+                                <select (ngModelChange)="ConvergeCat($event)" [(ngModel)]="Category1" #Category="ngModel">
+                                    <option selected >All</option>
+                                    <option>CONSUMER</option>
+                                    <option>E-COMMERCE</option>
+                                    <option>EDUCATION</option>
+                                    <option>HEALTHCARE</option>
+                                    <option>LOGISTICS</option>
+                                    <option>MANUFACTURING</option>
+                                    <option>TECHNOLOGY</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Round</h5>
+                                <select (ngModelChange)="ConvergeRound($event)" [(ngModel)]="Roundno" #Round="ngModel">
+                                    <option selected>All</option>
+                                    <option>Round 1</option>
+                                    <option>Round 2</option>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead >
+                                <tr>
+                                    
+                                    <th class="txt">Id</th>
+                                    <th class="txt">Password</th>
+                                    <th class="txt">Round</th>
+                                    <th class="txt">Category</th>
+                                    <th class="txt">Startups</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let s of sorts1 ; let i = index" >
+                                    <td ><p>{{s.userName}}</p></td>
+                                    <td ><p>{{s.password}}</p></td>
+                                    <td ><p>{{s.round}}</p></td>
+                                    <td ><p>{{s.category}}</p></td>
+                                    <td ><p>{{s.selectionLimit}}</p></td>
+                                    <td ><button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple" style="color:black;"><i class="material-icons" style="font-size:2em" (click)="delete(s.userName)">delete</i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

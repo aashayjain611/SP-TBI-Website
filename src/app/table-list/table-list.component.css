@@ -1,0 +1,24 @@
+.form-control, .form-group .form-control {
+    border: 0;
+    background-image: linear-gradient(#2515d6, #2515d6), linear-gradient(#D2D2D2, #D2D2D2);
+}
+
+.card [data-background-color="red"] {
+    background: linear-gradient(60deg, #110d42, #d3d2e8);
+}
+.txt{
+    font-size: 15px;
+    font-weight: 700;
+    text-align:center;
+}
+.btn{
+    background-color:#1a3f74;
+}
+
+div{
+    color:black;
+}
+label.control-label{
+    position: relative;
+    left: -2px;
+}
