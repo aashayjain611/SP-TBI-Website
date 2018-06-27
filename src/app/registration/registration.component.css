@@ -26,12 +26,12 @@ input[type=radio]:hover,select:hover{
     font-weight: 300;
     line-height: 1.1; 
     font-size: 2em;
-    color: aqua;
+    color: #1a3f74;
 }
 
 .main-content{
 
-    background-image: url("/Users/aashayjain611/Downloads/SP-TBI-Website-master-5/src/assets/img/startup6.jpg");
+    background-image: url("/assets/img/startup6.jpg");
     /* background-attachment: fixed; */
     background-position: center;
     background-repeat: no-repeat;

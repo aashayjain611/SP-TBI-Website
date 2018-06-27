@@ -20,7 +20,7 @@ input[type=text], input[type=password] {
 
 /*Set a style for all buttons */
  button#login {
-    background: linear-gradient(60deg,#110d42, #d3d2e8);
+    background-color: #1a3f74;
     /* background-color: #4CAF50; */
     color: white;
     padding: 14px 20px;
@@ -150,7 +150,7 @@ button#login {
     transition: all 0.5s ease-out;
     text-align: center;
     color: #fff;
-    background: linear-gradient(60deg,#110d42, #d3d2e8);
+    background-color: #1a3f74;
     text-decoration: none;
 }
 button#login:hover {
@@ -175,7 +175,7 @@ button#login:hover span {
     position: absolute;
     height: 0;
     width: 0;
-    border: solid #110d42;
+    border: solid #1a3f74;
     border-width: 0;
     border-radius: 0;
     transition: 0;
@@ -186,7 +186,7 @@ button#login:hover span {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    border-color: #110d42;
+    border-color: #1a3f74;
     border-radius: 5px;
 }
 button#login .btnBefore {
