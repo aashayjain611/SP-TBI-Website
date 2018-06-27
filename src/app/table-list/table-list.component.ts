@@ -15,6 +15,8 @@ export class TableListComponent implements OnInit {
 
   private static cat: string;
   private static rou :string;  
+  @Input()uname:string;
+  message=false;
   Panelists=[];
   sorts=[];
   sorts1=[];
@@ -43,17 +45,23 @@ export class TableListComponent implements OnInit {
     
   }
   MakeObject(e){
+    console.log(this.uname);
     console.log(e.target.elements[0].value);
     if(e.target.elements[0].value === "" || e.target.elements[2].value === "" || e.target.elements[3].value === "" || e.target.elements[4].value === "" || e.target.elements[1].value === ""){
       alert("Some Fields are missing");
       return;
-    }
+    }	
     TableListComponent.obj={"round":e.target.elements[2].value,"userName":e.target.elements[0].value, "password":e.target.elements[1].value,"selectionLimit":e.target.elements[4].value,"category":e.target.elements[3].value};
     TableListComponent.output=TableListComponent.obj;
     console.log(TableListComponent.output);
     this.Table.addToList(TableListComponent.output);
     this.Table.addPanelist(TableListComponent.output).subscribe(
       data=>{console.log("Successful");
+      const PanelAdd = <HTMLElement>document.querySelector('.modaladded');  //alert for successful panelist addition
+      PanelAdd.style.display='block'; 
+      setTimeout(() => {
+        PanelAdd.style.display='none'; 
+      }, 3000);	
       }
     );
     e.target.elements[0].value=null;e.target.elements[1].value="";e.target.elements[2].value="";e.target.elements[3].value="";e.target.elements[4].value="";
@@ -70,7 +78,7 @@ export class TableListComponent implements OnInit {
         this.Roundno=this.sstorage.retrieve('round');   
         this.Category1=this.sstorage.retrieve('category'); 
     });
-    }, 5000);
+    }, 3000);
     
     
   }
@@ -164,6 +172,11 @@ export class TableListComponent implements OnInit {
   {
     this.Table.deletePanelist(username).subscribe(
       data=>{console.log("Successful");
+      const PanelDelete = <HTMLElement>document.querySelector('.modaldeleted');  //alert for successful panelist addition
+      PanelDelete.style.display='block'; 
+      setTimeout(() => {
+        PanelDelete.style.display='none'; 
+      }, 3000);	
       }
     );
     this.Panelists=[];

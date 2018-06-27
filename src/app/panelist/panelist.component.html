@@ -57,9 +57,9 @@
                                         <th><b>Startup Name</b></th>
                                         <th><b>Startup Idea</b></th>
                                         <th style="text-align:center;"><b>Description</b></th>
-                                        <th>Legal Entity</th>
-                                        <th>Operational Revenue</th>
-                                        <th>Working Idea</th>
+                                        <th><b>Legal Entity</b></th>
+                                        <th><b>Operational Revenue</b></th>
+                                        <th><b>Working Idea</b></th>
                                         <th style="text-align:center;"><b>Rating</b></th>
                                         <th style="text-align:center;"><b>Note</b></th>
                                         <th class="text-success"><b>Accept</b></th>
@@ -112,11 +112,11 @@
                                         </thead>
                                         <tbody style="font-size:15px" >
                                             <tr>
-                                                <td class="heading">IDEA</td>
+                                                <td class="heading">Idea</td>
                                                 <td>{{currentevalStartup.startupIdea}}</td>
                                             </tr><br/>
                                             <tr>
-                                                    <td class="heading">DESCRIPTION</td>
+                                                    <td class="heading">Description</td>
                                                     <td>{{currentevalStartup.description}}</td>
                                                 </tr><br/>
                                             <tr>
@@ -132,7 +132,7 @@
                                                 <td>{{currentevalStartup.operationalRevenue}}</td>
                                             </tr><br/>
                                             <tr>
-                                                <td class="heading">primary Customer</td>
+                                                <td class="heading">Primary Customer</td>
                                                 <td>{{currentevalStartup.primaryCustomer}}</td>
                                             </tr><br/>
                                             <tr>
@@ -140,10 +140,17 @@
                                                 <td>{{currentevalStartup.painPoint}}</td>
                                             </tr><br/>
                                             <tr>
-                                                    <td class="heading">Competitors</td>
-                                                    <td>{{currentevalStartup.competitors}}</td>
-                                                </tr><br/>
-                                           
+                                                <td class="heading">Competitors</td>
+                                                <td>{{currentevalStartup.competitors}}</td>
+                                            </tr><br/>
+                                            <tr>
+                                                <td class="heading">Different From Competitors</td>
+                                                <td>{{currentevalStartup.differentFromCompetitors}}</td>
+                                            </tr><br/>
+                                             <tr>
+                                                <td class="heading">Monetization Model</td>
+                                                <td>{{currentevalStartup.moneyModel}}</td>
+                                            </tr><br/>  
                                             <tr>
                                                 <td class="heading">Founders</td>
                                                 <td >

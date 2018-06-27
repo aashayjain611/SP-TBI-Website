@@ -1,6 +1,20 @@
 <div class="main-content">
     <div class="container-fluid">
-          
+    
+    <div id="modal1" class="modaladded"> 
+            <div class="modal-content animate">
+              <div style="padding-left:3%;">  
+                    <h2 style="font-size:20px;font-weight:700;margin-top:10px;"><span class="glyphicon glyphicon-plus-sign" style="color:green;font-size:30px;top:8px;"></span> Added Panelist {{uname}}</h2>
+              </div>
+            </div>
+    </div>
+    <div id="modal2" class="modaldeleted"> 
+            <div class="modal-content animate">
+              <div style="padding-left:3%;">  
+                    <h2 style="font-size:20px;font-weight:700;margin-top:10px;"><span class="glyphicon glyphicon-trash" style="color:red;font-size:30px;top:8px;margin-left:0px;"></span> Deleted Panelist </h2>
+              </div>
+            </div>
+    </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -12,8 +26,8 @@
                         <div class="row">
                             <div class="col-md-2">
                                     <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">PanelistID</label>
-                                            <input type="text" class="form-control" required>
+                                            <label class="control-label">Username</label>
+                                            <input type="text" name="uname" class="form-control" required [(ngModel)]=uname>
                                         </div>
                             </div>
                             <div class="col-md-2">
@@ -94,14 +108,14 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="list">
                                 <tr *ngFor="let s of sorts1 ; let i = index" >
                                     <td ><p>{{s.userName}}</p></td>
                                     <td ><p>{{s.password}}</p></td>
                                     <td ><p>{{s.round}}</p></td>
                                     <td ><p>{{s.category}}</p></td>
                                     <td ><p>{{s.selectionLimit}}</p></td>
-                                    <td ><button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple" style="color:black;"><i class="material-icons" style="font-size:2em" (click)="delete(s.userName)">delete</i></button></td>
+                                    <td ><button type="button" rel="tooltip" title="Remove" class="btn btn-simple" style="color:black;"><span class="glyphicon glyphicon-trash" style="font-size:15px" (click)="delete(s.userName)"></span></button></td>
                                 </tr>
                             </tbody>
                         </table>

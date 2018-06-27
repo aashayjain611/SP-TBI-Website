@@ -33,7 +33,7 @@ export class RegistrationComponent implements OnInit {
   revenue:boolean=true;
   work:boolean=true;
   legal:boolean=true;
-
+  success:boolean=false;
   f1:boolean=true;f2:boolean=false;f3:boolean=false;f4:boolean=false;f5:boolean=false;f6:boolean=false;
   
 
@@ -107,7 +107,14 @@ export class RegistrationComponent implements OnInit {
     console.log(this.u);
     this.userService.submitRegistration(this.u).subscribe(
       startupForm => {
-        console.log("successful");					   
+        console.log("successful");	
+        const Popup = <HTMLElement>document.querySelector('.modalsuccess');
+        Popup.style.display='block'; 
+        console.log(this.success);
+        setTimeout(() => {
+          Popup.style.display='none'; 
+          this.router.navigate(['dashboard']);
+        }, 3000);				   
       }
     );
    

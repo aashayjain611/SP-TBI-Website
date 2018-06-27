@@ -23,12 +23,28 @@ export class FormsComponent implements OnInit {
   count:number=0;
   currentevalStartup=[];
   startups=[];
+  startupsCopy=[];
 
   constructor(private logger:LoginToggleService, private router: Router, private Table: TableService,public userService:UserService) {
     this.userService.getFormForFounder().subscribe((data)=>{
       this.startups.push(data);
+      this.startupsCopy.push(data);
 });
    }
+   selectCategory(cat:string){
+    this.startups=[];
+    for(let entry of this.startupsCopy)
+    {
+      if(cat===entry.category)
+      {
+        this.startups.push(entry);
+      }
+    }
+    if(cat=='All')
+    {
+      this.startups=this.startupsCopy;
+    }
+  }
  
   
   goToForm(startupID:number)

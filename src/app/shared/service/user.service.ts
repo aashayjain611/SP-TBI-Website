@@ -23,8 +23,11 @@ export class UserService{
   gettingUser(username:string,password:string)
   {
     console.log('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password);
-   return this.http.get('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password)          //getting UserType
-    .flatMap((data) =>Observable.of(data.json()));
+    return this.http.get('assets/data/user.json')
+    .flatMap((data) =>(data.json()));
+   
+  //  return this.http.get('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password)          //getting UserType
+  //   .flatMap((data) =>Observable.of(data.json()));
   }
   getLimit(){
     return this.http.get('http://localhost:8080/sptbi/webapi/panelist/limit/'+this.sstorage.retrieve('username'))

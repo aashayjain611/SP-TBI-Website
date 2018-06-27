@@ -79,7 +79,7 @@ export class NavbarComponent implements OnInit {
             this.sidebarClose();
         }
     };
-
+ 
     getTitle(){
         var titlee = this.location.prepareExternalUrl(this.location.path());
         if(titlee.charAt(0) === '#'){

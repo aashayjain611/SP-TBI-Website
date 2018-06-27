@@ -38,7 +38,7 @@
         <div *ngIf="Logged" id="login" class="modal"> 
             <form class="modal-content animate">
               <div class="imgcontainer">
-                <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Login">&times;</span>
               </div>
               <div class="container">
                   
@@ -53,8 +53,12 @@
               </div>
           
               <div class="container" style="position:center;width:75%">
-                <button class="login" id="login" type="submit" (click)="Login($event)">Login</button>
-            </div>      
+                    <button class="login" id="login" type="submit" (click)="Login($event)">
+                        <span class="text">Login</span>
+                        <span class="btnBefore"></span>
+                        <span class="btnAfter"></span>
+                    </button>
+                </div>     
                 
             </form>
         </div>
