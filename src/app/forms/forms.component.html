@@ -1,4 +1,3 @@
-
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
@@ -7,6 +6,22 @@
                     <div class="card-header" data-background-color="red">
                         <h4 class="title">List of StartUps</h4>
                         <p class="category" style="font-size:20px">
+                    </div>
+                    <div class="category">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <h5>Category</h5>
+                            <select (ngModelChange)="selectCategory($event)" [(ngModel)]="Category1" #Category="ngModel">
+                                <option selected >All</option>
+                                <option>CONSUMER</option>
+                                <option>E-COMMERCE</option>
+                                <option>EDUCATION</option>
+                                <option>HEALTHCARE</option>
+                                <option>LOGISTICS</option>
+                                <option>MANUFACTURING</option>
+                                <option>TECHNOLOGY</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="card-content table-responsive">
                         <table class="table">
@@ -59,45 +74,37 @@
                             </thead>
                             <tbody style="font-size:15px" >
                                 <tr>
-                                        <td class="heading">Idea</td>
-                                        <td>{{currentevalStartup.startupIdea}}</td>
+                                    <td class="heading">IDEA</td>
+                                    <td>{{currentevalStartup.startupIdea}}</td>
                                 </tr><br/>
                                 <tr>
-                                        <td class="heading">Description</td>
+                                        <td class="heading">DESCRIPTION</td>
                                         <td>{{currentevalStartup.description}}</td>
+                                    </tr><br/>
+                                <tr>
+                                    <td class="heading" >Legal Entity</td>
+                                    <td>{{currentevalStartup.legalEntity}}</td>
                                 </tr><br/>
                                 <tr>
-                                        <td class="heading" >Legal Entity</td>
-                                        <td>{{currentevalStartup.legalEntity}}</td>
+                                    <td class="heading" >Working MOdel</td>
+                                    <td>{{currentevalStartup.workingIdea}}</td>
                                 </tr><br/>
                                 <tr>
-                                        <td class="heading" >Working MOdel</td>
-                                        <td>{{currentevalStartup.workingIdea}}</td>
+                                    <td class="heading" >Operational Revenue</td>
+                                    <td>{{currentevalStartup.operationalRevenue}}</td>
                                 </tr><br/>
                                 <tr>
-                                        <td class="heading" >Operational Revenue</td>
-                                        <td>{{currentevalStartup.operationalRevenue}}</td>
+                                    <td class="heading">primary Customer</td>
+                                    <td>{{currentevalStartup.primaryCustomer}}</td>
                                 </tr><br/>
                                 <tr>
-                                        <td class="heading">Primary Customer</td>
-                                        <td>{{currentevalStartup.primaryCustomer}}</td>
-                                </tr><br/>
-                                <tr>
-                                        <td class="heading">Targetted Pain Point</td>
-                                        <td>{{currentevalStartup.painPoint}}</td>
+                                    <td class="heading">Targetted Pain Point</td>
+                                    <td>{{currentevalStartup.painPoint}}</td>
                                 </tr><br/>
                                 <tr>
                                         <td class="heading">Competitors</td>
                                         <td>{{currentevalStartup.competitors}}</td>
-                                </tr><br/>
-                                <tr>
-                                        <td class="heading">Different From Competitors</td>
-                                        <td>{{currentevalStartup.differentFromCompetitors}}</td>
-                                </tr><br/>
-                                <tr>
-                                        <td class="heading">Monetization Model</td>
-                                        <td>{{currentevalStartup.moneyModel}}</td>
-                                </tr><br/>
+                                    </tr><br/>
                                
                                 <tr>
                                     <td class="heading">Founders</td>

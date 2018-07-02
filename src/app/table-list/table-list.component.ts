@@ -83,7 +83,6 @@ export class TableListComponent implements OnInit {
     
   }
 
-
   Converge(){
     if(TableListComponent.cat==="All")
       for(let x of this.Panelists)
@@ -192,7 +191,7 @@ export class TableListComponent implements OnInit {
         this.Roundno=this.sstorage.retrieve('round');   
         this.Category1=this.sstorage.retrieve('category'); 
     });
-    }, 5000);
+    }, 3000);
     
   }
 }

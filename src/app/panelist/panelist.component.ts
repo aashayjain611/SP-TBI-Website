@@ -131,6 +131,7 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
       this.moretemp=[];
       this.startupsBeforeReject='';  //maintains a copy before reject
       this.startupsWhileReject=[];
+      this.count=0;
       this.getData();
       }, 1000);
       
