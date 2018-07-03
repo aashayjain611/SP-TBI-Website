@@ -5,7 +5,7 @@
 .willscroll{
     width:80%; 
     margin-left:10%;
-    background-color:rgba(0, 0, 0, 0.7);
+    background-color:rgba(0, 0, 0, 0.8);
     padding:5% 3% 5% 3%;
     border-radius: 1%;
 }
@@ -18,20 +18,30 @@ input[type=radio]:hover,select:hover{
     -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
     box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
 }
-#heading{
+h6.heading{
+    font-size: 3em;
+    font-weight: 700;
+    margin: 0;
+    color: #FFFFFF;
+    background: linear-gradient(to bottom, #FFFFFF 20%, #4e6773 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
-    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Montserrat", "Helvetica", Arial, sans-serif;
+    line-height: 1.1;
+    /* -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: "Montserrat", "Helvetica", Arial, sans-serif;
     font-weight: 300;
     line-height: 1.1; 
     font-size: 2em;
-    color: #1a3f74;
+    color: #2515d6; */
 }
 
 .main-content{
 
-    background-image: url("/assets/img/startup6.jpg");
+    background-image: url("/assets/img/startup1-reverse.jpg");
     /* background-attachment: fixed; */
     background-position: center;
     background-repeat: no-repeat;
