@@ -17,17 +17,44 @@ export class UserService{
   category:string;
   userName:string;
 
-  constructor(private http:Http,public sstorage:SessionStorageService) { 
+  private clock: Observable<Date>;
+
+  constructor(private http:Http,public sstorage:SessionStorageService) {
+    this.clock = Observable.interval(1000).map(tick => new Date()).share(); 
     this.userType=0;
   }
+  getClock(): Observable<Date> {
+    return this.clock;
+  }
+  sendRound1(ans:string)    //round1 has started
+  {
+    return this.http.get(''+ans)
+    .flatMap((data) =>(data.json()));
+  }
+  sendRound2(ans:string)  //round2 has started
+  {
+    return this.http.get(''+ans)
+    .flatMap((data) =>(data.json()));
+  }
+  getRound1()    //round1 has started
+  {
+    return this.http.get('')
+    .flatMap((data) =>Observable.of(data.json()));
+  }
+  getRound2()  //round2 has started
+  {
+    return this.http.get('')
+    .flatMap((data) =>Observable.of(data.json()));
+  }
+
   gettingUser(username:string,password:string)
   {
     console.log('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password);
-    // return this.http.get('assets/data/user.json')
-    // .flatMap((data) =>(data.json()));
+    return this.http.get('assets/data/user.json')
+    .flatMap((data) =>(data.json()));
    
-   return this.http.get('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password)          //getting UserType
-    .flatMap((data) =>Observable.of(data.json()));
+  //  return this.http.get('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password)          //getting UserType
+  //   .flatMap((data) =>Observable.of(data.json()));
   }
   getLimit(){
     return this.http.get('http://localhost:8080/sptbi/webapi/panelist/limit/'+this.sstorage.retrieve('username'))

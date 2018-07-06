@@ -19,7 +19,7 @@
                     </div>
                     </a>
                 </li>
-                <li *ngIf="Logged">
+                <li *ngIf="!Logged">
                     <a>
                     <div onclick="document.getElementById('login').style.display='block'">
                        <i class="material-icons" >person</i>
@@ -27,7 +27,7 @@
                     </div>
                     </a>
                 </li>
-                <li *ngIf="!Logged">
+                <li *ngIf="Logged">
                     <a (click)="logout()">
                             <span style="font-size:17px" class="glyphicon glyphicon-log-out"></span>
                     </a>
@@ -45,3 +45,4 @@
         </ul>
     </div>
 </div>
+

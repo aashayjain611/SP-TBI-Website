@@ -89,7 +89,14 @@ export class AppComponent implements OnInit,OnChanges {
         else{
             const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
             const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
-            elemMainPanel.style.width='82%';
+            if (window.matchMedia(`(min-width: 991px)`).matches){
+                elemMainPanel.style.width='82%';
+            }
+            else
+            {
+                elemMainPanel.style.width='100%';
+            }
+           
         }
     }
     runOnRouteChange(): void {

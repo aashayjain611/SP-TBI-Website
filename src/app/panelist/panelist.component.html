@@ -67,7 +67,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        <tr *ngFor="let stup of startups | paginate: {itemsPerPage: 1, currentPage:page, id: '1'}; let i = index" >
+                                        <tr *ngFor="let stup of startups | paginate: {itemsPerPage: 1, currentPage:page, id: '1'}; let i = index" ><button>
                                                 <td (click)="goToForm(stup.formid)" id=stup.formid name=stup.formid>{{stup.startupName}}</td>
                                                 <td>{{stup.startupIdea}}</td>
                                                 <td>{{stup.description}}</td>
@@ -78,6 +78,7 @@
                                                 <td  ><textarea class="alignment" [name]=stup.note rows="2" [(ngModel)]=stup.note (ngModelChange)="sessionStoring($event)" style="border-width:0ch"></textarea></td>
                                                 <td  ><input type="radio" [name]=stup.startupName style="height:0%;width:0%;" [id]=stup.startupName  [value]="yes" [checked]="stup.status=='yes'"  (change)="onAcceptReject(stup.formid,'yes')"></td>
                                                 <td ><input type="radio" [name]=stup.startupName style="height:0%;width:0%;" [id]=stup.startupName    [value]="no"   [checked]="stup.status=='no'" (change)="onAcceptReject(stup.formid,'no')"></td>
+                                            </button>
                                             </tr>
                                 </tbody>
                             </table>
