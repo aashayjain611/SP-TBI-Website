@@ -25,19 +25,26 @@ export class AdminComponent implements OnInit {
       this.Location.forward();
     });
     //for storing start round values
-    if(!this.sstorage.retrieve('round1'))
+    // if(!this.sstorage.retrieve('round1') || !this.sstorage.retrieve('round2') )
+    // {
+    //   this.userService.getRound().subscribe((data)=>{
+    //     this.round1=data[''];
+    //     this.sstorage.store('round1',this.round1);
+    //     this.round2=data[''];
+    //     this.sstorage.store('round2',this.round2);
+    //     });
+    // }
+    if(this.sstorage.retrieve('round1')=='yes')
     {
-      this.userService.getRound1().subscribe((data)=>{
-        this.round1=data[''];
-        this.sstorage.store('round1',this.round1);
-        });
+      const Round1Button = <HTMLElement>document.querySelector('.round1');
+      Round1Button.setAttribute('disabled','disabled');
+      Round1Button.style.backgroundColor='black';
     }
-    if(!this.sstorage.retrieve('round2'))
+    if(this.sstorage.retrieve('round2')=='yes')
     {
-      this.userService.getRound2().subscribe((data)=>{
-        this.round2=data[''];
-        this.sstorage.store('round2',this.round2);
-        });
+      const Round2Button = <HTMLElement>document.querySelector('.round2');
+      Round2Button.setAttribute('disabled','disabled');
+      Round2Button.style.backgroundColor='black';
     }
    ////////////////
    }
@@ -63,9 +70,9 @@ export class AdminComponent implements OnInit {
   const Round1Button = <HTMLElement>document.querySelector('.round1');
   Round1Button.setAttribute('disabled','disabled');
   Round1Button.style.backgroundColor='black';
-  this.userService.sendRound1('yes').subscribe((data)=>{
+  this.userService.sendRound1().subscribe((data)=>{
     console.log("successful");
-    this.round1='';
+    this.round1='yes';
     this.sstorage.store('round1',this.round1);
   });
  }
@@ -75,9 +82,9 @@ export class AdminComponent implements OnInit {
   const Round2Button = <HTMLElement>document.querySelector('.round2');
   Round2Button.setAttribute('disabled','disabled');
   Round2Button.style.backgroundColor='black';
-  this.userService.sendRound2('yes').subscribe((data)=>{
+  this.userService.sendRound2().subscribe((data)=>{
     console.log("successful");
-    this.round2='';
+    this.round2='yes';
     this.sstorage.store('round2',this.round2);
   });
  }

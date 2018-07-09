@@ -35,13 +35,17 @@ export class RegistrationComponent implements OnInit {
   legal:boolean=true;
   success:boolean=false;
   f1:boolean=true;f2:boolean=false;f3:boolean=false;f4:boolean=false;f5:boolean=false;f6:boolean=false;
-  
+  reg_open:boolean=true;
 
   constructor(private  userService: UserService,private router:Router, private fb : FormBuilder,public sstorage:SessionStorageService) {
     
    }
 
   ngOnInit() {
+    //this.userService.getRound().subscribe((data)=>{
+      // if(data['']=='YES')
+      //   this.reg_open=false;
+    //});
   }
   
 

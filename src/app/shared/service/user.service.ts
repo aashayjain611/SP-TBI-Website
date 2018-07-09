@@ -26,22 +26,17 @@ export class UserService{
   getClock(): Observable<Date> {
     return this.clock;
   }
-  sendRound1(ans:string)    //round1 has started
-  {
-    return this.http.get(''+ans)
-    .flatMap((data) =>(data.json()));
-  }
-  sendRound2(ans:string)  //round2 has started
-  {
-    return this.http.get(''+ans)
-    .flatMap((data) =>(data.json()));
-  }
-  getRound1()    //round1 has started
+  sendRound1()    //round1 has started
   {
     return this.http.get('')
-    .flatMap((data) =>Observable.of(data.json()));
+    .flatMap((data) =>(data.json()));
   }
-  getRound2()  //round2 has started
+  sendRound2()  //round2 has started
+  {
+    return this.http.get('')
+    .flatMap((data) =>(data.json()));
+  }
+  getRound()    //round details has started
   {
     return this.http.get('')
     .flatMap((data) =>Observable.of(data.json()));

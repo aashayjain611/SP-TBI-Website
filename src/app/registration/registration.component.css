@@ -8,6 +8,7 @@
     background-color:rgba(0, 0, 0, 0.8);
     padding:5% 3% 5% 3%;
     border-radius: 1%;
+    
 }
 
 .form-control, .form-group .form-control {
@@ -41,11 +42,12 @@ h6.heading{
 
 .main-content{
 
-    background-image: url("/assets/img/startup1-reverse.jpg");
+    background-image: url("/assets/img/startup6-reverse.jpg");
     /* background-attachment: fixed; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    opacity:0.9;
 }
 label.control-label{
     color:white;

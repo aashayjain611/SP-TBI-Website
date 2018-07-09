@@ -11,7 +11,7 @@
                        
                         <div class="willscroll">
                             <h6 class="heading">STARTUP REGISTRATION FORM</h6>
-                            <form #startup="ngForm" (ngSubmit)="login(startup)">
+                            <form *ngIf="reg_open" #startup="ngForm" (ngSubmit)="login(startup)">
                             <div [hidden]="startup.submitted">
 
                                 <div class="form-group label-floating is-empty">
@@ -393,6 +393,11 @@
                                 </div>
                             </div>
                             </form>
+
+                            <div *ngIf="!reg_open">
+                                    <br/><br/><br/>
+                                    <marquee style="font-size:20px;color:white;">Registrations have been closed !</marquee>
+                            </div>
                         </div>
                         <!-- </div>
                     

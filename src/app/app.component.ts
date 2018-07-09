@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { SessionStorageService } from 'ngx-webstorage';
 
+
 declare const $: any;
 
 @Component({
