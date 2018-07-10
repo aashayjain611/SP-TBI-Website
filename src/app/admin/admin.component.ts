@@ -28,25 +28,24 @@ export class AdminComponent implements OnInit {
     // if(!this.sstorage.retrieve('round1') || !this.sstorage.retrieve('round2') )
     // {
     //   this.userService.getRound().subscribe((data)=>{
-    //     this.round1=data[''];
+    //     this.round1=data['statusEndRound1'];
     //     this.sstorage.store('round1',this.round1);
-    //     this.round2=data[''];
+    //     this.round2=data['statusEndRound1'];
     //     this.sstorage.store('round2',this.round2);
     //     });
     // }
-    if(this.sstorage.retrieve('round1')=='yes')
+    if(this.sstorage.retrieve('round1')=='END')
     {
       const Round1Button = <HTMLElement>document.querySelector('.round1');
       Round1Button.setAttribute('disabled','disabled');
       Round1Button.style.backgroundColor='black';
     }
-    if(this.sstorage.retrieve('round2')=='yes')
+    if(this.sstorage.retrieve('round2')=='END')
     {
       const Round2Button = <HTMLElement>document.querySelector('.round2');
       Round2Button.setAttribute('disabled','disabled');
       Round2Button.style.backgroundColor='black';
     }
-   ////////////////
    }
  Round1()
  {
