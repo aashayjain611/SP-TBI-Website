@@ -6,6 +6,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { SessionStorageService } from 'ngx-webstorage';
+import { Subject } from 'rxjs';
 
 
 declare const $: any;
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit,OnChanges {
     private yScrollStack: number[] = [];
     abc:boolean;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
-
+    private eventsSubject: Subject<boolean> = new Subject<boolean>();
     constructor( public location: Location, private router: Router,public sstorage:SessionStorageService) {}
 
     ngOnChanges(){
@@ -98,6 +99,14 @@ export class AppComponent implements OnInit,OnChanges {
                 elemMainPanel.style.width='100%';
             }
            
+        }
+    }
+    hideSidebar(log:boolean)
+    {
+        if(log==false)
+        {
+            console.log("bla");
+            this.eventsSubject.next(true) ;  
         }
     }
     runOnRouteChange(): void {

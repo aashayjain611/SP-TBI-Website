@@ -28,7 +28,7 @@
         <div *ngIf="Logged" id="login" class="modal"> 
             <form class="modal-content animate">
               <div class="imgcontainer">
-                <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Login">&times;</span>
+                <span (click)="closeModal();" class="close" title="Close Login">&times;</span>
               </div>
               <div class="container">
                   

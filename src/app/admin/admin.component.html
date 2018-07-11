@@ -23,16 +23,26 @@
                                         <div class="col-md-8"></div>
                                         <div class="col-md-4" >
                                             <h3 style="color:black;text-align:justify">DAY : {{time | date:'dd.MM.yyyy'}}<br/><b>{{time | date:'HH:mm:ss'}}</b></h3>
-                                                <button class="round1" id="round1" type="submit" (click)="Round1()" style="margin-top:15%;">
-                                                        <span class="text" style="font-size:15px;"><b> End Round 1</b></span>
+                                                <button *ngIf="round1end" class="round1" id="round1" type="submit" (click)="Round1()" style="margin-top:15%;">
+                                                        <span class="text" style="font-size:15px;"><b> Start Round 1</b></span>
                                                         <span class="btnBefore"></span>
                                                         <span class="btnAfter"></span>
                                                 </button>
-                                                <button class="round2" id="round2" type="submit" (click)="Round2()" style="margin-top:30%;margin-bottom:20%">
-                                                        <span class="text" style="font-size:15px;"><b> End Round 2 </b></span>
+                                                <button class="round1" id="round1end" *ngIf="!round1end" style="margin-top:15%;background-color:black;">
+                                                    <span class="text" style="font-size:15px;"><b> Start Round 1</b></span>
+                                                    <span class="btnBefore"></span>
+                                                    <span class="btnAfter"></span>
+                                            </button>
+                                                <button class="round2" *ngIf="round2end" id="round2" type="submit" (click)="Round2()" style="margin-top:30%;margin-bottom:20%">
+                                                        <span class="text" style="font-size:15px;"><b> Start Round 2 </b></span>
                                                         <span class="btnBefore"></span>
                                                         <span class="btnAfter"></span>
                                                 </button>
+                                                <button class="round2" *ngIf="!round2end" id="round2end" style="margin-top:30%;margin-bottom:20%;background-color:black;">
+                                                    <span class="text" style="font-size:15px;"><b> Start Round 2 </b></span>
+                                                    <span class="btnBefore"></span>
+                                                    <span class="btnAfter"></span>
+                                            </button>
                                         </div>
                                     </div>
                                     <img src="/assets/img/lastday.jpeg" width="100%" height="700px" style="opacity:0.5;position:absolute; left: 0;
@@ -44,12 +54,12 @@
                                             <h3>Are you sure you want to start Round1 ?</h3>
                                             <h5><b>No more forms will be taken into registration.</b></h5>
                                             <div class="row">
-                                                <div class="col-md-7 col-sm-7"> </div>
-                                                <div class="col-md-2 col-sm-2">
-                                                    <button class="btn btn-round btn-success" (click)="roundstart1()" style="color:white;background-color:green;font-weight:700;">OK</button>
+                                                <div class="col-md-6 col-sm-6"> </div>
+                                                <div class="col-md-3 col-sm-3">
+                                                    <button class="btn btn-round btn-success" (click)="roundstart1()" style="width:90%;color:white;font-weight:700;">OK</button>
                                                 </div>
                                                 <div class="col-md-3 col-sm-3">
-                                                    <button class="btn btn-round btn-danger" (click)="close()" style="color:white;font-weight:700;">CANCEL</button>
+                                                    <button class="btn btn-round btn-danger" (click)="close()" style="width:90%;color:white;font-weight:700;">CANCEL</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -60,12 +70,12 @@
                                                 <h3>Are you sure you want to start Round2 ?</h3>
                                                 <h5><b>No more forms will be selected for Round2.</b></h5>
                                                 <div class="row">
-                                                    <div class="col-md-7 col-sm-7"> </div>
-                                                    <div class="col-md-2 col-sm-2">
-                                                        <button class="btn btn-round btn-success" (click)="roundstart2()" style="color:white;background-color:green;font-weight:700;">OK</button>
+                                                    <div class="col-md-6 col-sm-6"> </div>
+                                                    <div class="col-md-3 col-sm-3">
+                                                        <button class="btn btn-round btn-success" (click)="roundstart2()" style="width:90%;color:white;font-weight:700;">OK</button>
                                                     </div>
                                                     <div class="col-md-3 col-sm-3">
-                                                        <button class="btn btn-round btn-danger" (click)="close()" style="color:white;font-weight:700;">CANCEL</button>
+                                                        <button class="btn btn-round btn-danger" (click)="close()" style="width:90%;color:white;font-weight:700;">CANCEL</button>
                                                     </div>
                                                 </div>
                                         </div>

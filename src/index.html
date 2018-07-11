@@ -70,8 +70,7 @@
   }
   .carousel {
     position: relative;
-    height: 60%;
-    margin-top:75px;
+    height: 100%;
     overflow: hidden;
     -webkit-perspective: 50vw;
             perspective: 50vw;
@@ -81,7 +80,7 @@
   .carousel__control {
     position: absolute;
     height: 160px;
-    width: 40px;
+    width: 30px;
     background: #fff;
     right: 0;
     top: 0;
@@ -325,13 +324,18 @@
     background-image: none;
   }
   @media screen and (max-width:990px) {
-      .carousel{
-          height: 60%;
-      }  
+    .carousel{
+      height:60%;
+      margin-top:80px;
+    }
       .content__right .content__main{
         font-size:15px;
         line-height: 15px;
-      }   
+      }  
+      .main-panel .main-content {
+        padding:0px;
+      } 
+
   }
      </style>
      

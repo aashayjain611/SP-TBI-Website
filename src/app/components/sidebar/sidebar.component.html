@@ -10,7 +10,7 @@
 </div>
 <div class="sidebar-wrapper"  style="border-top:2px solid white;">
 
-    <ul class="nav nav-mobile-menu" *ngIf="isMobileMenu()">
+    <ul class="nav nav-mobile-menu"  *ngIf="isMobileMenu()">
             <li>
                     <a>
                     <div (click)="Dash()">    
@@ -21,7 +21,7 @@
                 </li>
                 <li *ngIf="!Logged">
                     <a>
-                    <div onclick="document.getElementById('login').style.display='block'">
+                    <div (click)="hideSidebar();">
                        <i class="material-icons" >person</i>
                        <p class="hidden-lg hidden-md">Profile</p>
                     </div>

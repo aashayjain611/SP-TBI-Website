@@ -26,6 +26,7 @@ export class UserService{
   getClock(): Observable<Date> {
     return this.clock;
   }
+ 
   sendRound1()    //round1 has started
   {
     return this.http.get('')
@@ -38,8 +39,8 @@ export class UserService{
   }
   getRound()    //round details has started
   {
-    return this.http.get('')
-    .flatMap((data) =>Observable.of(data.json()));
+    return this.http.get('assets/data/round.json')
+    .flatMap((data) =>data.json());
   }
 
   gettingUser(username:string,password:string)
@@ -61,8 +62,8 @@ export class UserService{
     this.userName=this.sstorage.retrieve('username');
     console.log('http://localhost:8080/sptbi/webapi/panelist/'+this.sstorage.retrieve('username'));
     
-    return this.http.get('http://localhost:8080/sptbi/webapi/panelist/'+this.sstorage.retrieve('username'))
-   //return this.http.get('panelist/'+this.userName)          //getting UserType
+   return this.http.get('http://localhost:8080/sptbi/webapi/panelist/'+this.sstorage.retrieve('username'))
+   //return this.http.get('assets/data/register.json')          //getting UserType
     .flatMap((data) =>data.json());
   }
 

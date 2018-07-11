@@ -17,35 +17,18 @@ export class AdminComponent implements OnInit {
   private static obj: any;
   private static output: string;
   time: Date;
-  round1:string;
-  round2:string;
+  round1end:boolean=true;
+  round2end:boolean=true;
   constructor(private Location:PlatformLocation,private Table: TableService, private router: Router, private logger: LoginToggleService,private userService: UserService,public sstorage:SessionStorageService) {
     Location.onPopState(() => {
-    if(window.location.pathname=='/dashboard')
+    if(window.location.pathname!='/admin')
+    {
       this.Location.forward();
+    }
+      
     });
-    //for storing start round values
-    // if(!this.sstorage.retrieve('round1') || !this.sstorage.retrieve('round2') )
-    // {
-    //   this.userService.getRound().subscribe((data)=>{
-    //     this.round1=data['statusEndRound1'];
-    //     this.sstorage.store('round1',this.round1);
-    //     this.round2=data['statusEndRound1'];
-    //     this.sstorage.store('round2',this.round2);
-    //     });
-    // }
-    if(this.sstorage.retrieve('round1')=='END')
-    {
-      const Round1Button = <HTMLElement>document.querySelector('.round1');
-      Round1Button.setAttribute('disabled','disabled');
-      Round1Button.style.backgroundColor='black';
-    }
-    if(this.sstorage.retrieve('round2')=='END')
-    {
-      const Round2Button = <HTMLElement>document.querySelector('.round2');
-      Round2Button.setAttribute('disabled','disabled');
-      Round2Button.style.backgroundColor='black';
-    }
+    this.userService.getClock().subscribe(time => this.time = time);
+    
    }
  Round1()
  {
@@ -66,30 +49,33 @@ export class AdminComponent implements OnInit {
  roundstart1()
  {
    this.close();
-  const Round1Button = <HTMLElement>document.querySelector('.round1');
-  Round1Button.setAttribute('disabled','disabled');
-  Round1Button.style.backgroundColor='black';
+   this.round1end=false;
   this.userService.sendRound1().subscribe((data)=>{
     console.log("successful");
-    this.round1='yes';
-    this.sstorage.store('round1',this.round1);
   });
  }
  roundstart2()
  {
    this.close();
-  const Round2Button = <HTMLElement>document.querySelector('.round2');
-  Round2Button.setAttribute('disabled','disabled');
-  Round2Button.style.backgroundColor='black';
+   this.round2end=false;
   this.userService.sendRound2().subscribe((data)=>{
     console.log("successful");
-    this.round2='yes';
-    this.sstorage.store('round2',this.round2);
   });
  }
 
   ngOnInit() {
-    this.userService.getClock().subscribe(time => this.time = time);
+       this.userService.getRound().subscribe((data)=>{
+         if(data['statusEndRound1']=='END')
+     {     
+       console.log("in");
+       this.round1end=false;
+     }
+     if(data['statusEndRound2']=='END')
+     {
+       this.round2end=false;
+     }
+         });
   }
+  
  
 }

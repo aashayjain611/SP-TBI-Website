@@ -8,7 +8,7 @@
     background-color:transparent;
 } */
 
-button#round1 ,button#round2{
+button#round1 ,button#round2, button#round1end, button#round2end{
    
     border-radius: 5px;
     margin-top: 10px;
@@ -109,7 +109,8 @@ transition: width 0.5s ease, height 0.5s ease 0.5s, border-top-right-radius 0.1s
     background-color: #fefefe;
     margin: 5% auto 5% auto; /* 5% from the top, 5% from the bottom and centered */
     border: 1px solid #888;
-    width: 40%; /* Could be more or less, depending on screen size */
+    width: auto; /* Could be more or less, depending on screen size */
+    max-width:600px;
 }
 
 

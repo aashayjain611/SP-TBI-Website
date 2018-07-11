@@ -8,6 +8,7 @@ import { UserService } from '../../shared/service/user.service';
 import { BrowserModule  } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { SessionStorageService } from 'ngx-webstorage';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -15,6 +16,8 @@ import { SessionStorageService } from 'ngx-webstorage';
   providers:[UserService,SessionStorageService]
 })
 export class NavbarComponent implements OnInit {
+    private eventsSubscription: any
+    @Input() events: Observable<boolean>;
     @ViewChild('uname') uname:ElementRef;
     @ViewChild('psw') psw:ElementRef;
     @Output()hideSide=new EventEmitter<boolean>();
@@ -52,8 +55,21 @@ export class NavbarComponent implements OnInit {
             this.Logged=false;
         }
         this.adminValidated();
+        this.eventsSubscription = this.events.subscribe((data) => {
+            this.sidebarClose();
+            const body = document.getElementsByTagName('body')[0];
+            body.style.overflow='hidden';
+            const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
+        elemMainPanel.style.height='200%';
+        });
     }
-
+    closeModal(){
+        document.getElementById('login').style.display='none';
+        const body = document.getElementsByTagName('body')[0];
+        body.style.overflow='auto';
+        const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
+        elemMainPanel.style.height='100%';
+    }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];
@@ -69,6 +85,8 @@ export class NavbarComponent implements OnInit {
         this.toggleButton.classList.remove('toggled');
         this.sidebarVisible = false;
         body.classList.remove('nav-open');
+        const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
+        elemMainPanel.style.height='100%';
     };
     sidebarToggle() {
         // const toggleButton = this.toggleButton;
@@ -117,7 +135,6 @@ export class NavbarComponent implements OnInit {
             
             this.sstorage.store('logged','false');
             console.log('Urvi is asshole ');
-            console.log(this.userService.userName);
             do
             {
 				

@@ -24,28 +24,64 @@ export class FormsComponent implements OnInit {
   currentevalStartup=[];
   startups=[];
   startupsCopy=[];
-
+  category1:string;
+  status1:string;
   constructor(private logger:LoginToggleService, private router: Router, private Table: TableService,public userService:UserService) {
     this.userService.getFormForFounder().subscribe((data)=>{
       this.startups.push(data);
       this.startupsCopy.push(data);
 });
    }
-   selectCategory(cat:string){
+  //  selectCategory(cat:string){
+  //   this.startups=[];
+  //   for(let entry of this.startupsCopy)
+  //   {
+  //     if(cat===entry.category)
+  //     {
+  //       this.startups.push(entry);
+  //     }
+  //   }
+  //   if(cat=='All')
+  //   {
+  //     this.startups=this.startupsCopy;
+  //   }
+  // }
+  selectCategoryStatus(){
     this.startups=[];
     for(let entry of this.startupsCopy)
     {
-      if(cat===entry.category)
-      {
-        this.startups.push(entry);
-      }
-    }
-    if(cat=='All')
-    {
-      this.startups=this.startupsCopy;
+        if(this.category1=='ALL' && this.status1=='ALL')  //if both category and status are all
+        {
+          this.startups.push(entry);
+        }
+        if(this.category1=='ALL' && this.status1!='ALL')   //if just category is all
+        {
+          if(this.status1=='ACCEPTED' && entry.status=='YES')
+            {
+              this.startups.push(entry);
+            }
+            else if(this.status1=='REJECTED' && entry.status=='NO')
+            {
+              this.startups.push(entry);
+            }  
+        }
+        if(this.category1==entry.category && this.category1!='ALL') 
+        {
+            if(this.status1=='ACCEPTED' && entry.status=='YES') //if status is not all and category is not all
+            {
+              this.startups.push(entry);
+            }
+            else if(this.status1=='REJECTED' && entry.status=='NO') //if status is not all and category is not all
+            {
+              this.startups.push(entry);
+            }   
+            else if(this.status1=='ALL') //if status is  all and category is not all
+            {
+              this.startups.push(entry);
+            }
+        }
     }
   }
- 
   
   goToForm(startupID:number)
   { 

@@ -15,6 +15,7 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
   ngOnChanges() {
     console.log("onchanges");
   }
+  @Input()uname:string;
   @Input()limit:number;
   @Input()legal1:string;
   @Input()revenue1:string;
@@ -44,10 +45,9 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
   startupsWhileReject=[];
   
   constructor(private userService:UserService, public sstorage:SessionStorageService) {
-    console.log("constructor");
+    console.log("constructor-panelist");
     this.getData();
    }
-
    getData()
    {
     if(!this.sstorage.retrieve('startups') && this.sstorage.retrieve('username'))
@@ -67,7 +67,8 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
    }
    ngOnInit()
    {
-    console.log("ngoninit");
+    this.uname=this.userService.userName;
+    console.log("ngoninit-panelist");
     if(this.sstorage.retrieve('checkbox')=='true')
     {
       this.reject1=true;
@@ -112,7 +113,7 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
   
    finalCheck()
    {
-     if(confirm('Are you sure you want to submit ?'))
+     if(confirm('Are you sure you want to submit ?\nIf you press OK, forms that have been accepted or rejected won’t be displayed .'))
      {
            // this.userService.postList(this.list).subscribe();   //posting data back to db
      console.log(this.startups);

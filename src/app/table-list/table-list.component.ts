@@ -169,29 +169,31 @@ export class TableListComponent implements OnInit {
   }
   delete(username:string)
   {
-    this.Table.deletePanelist(username).subscribe(
-      data=>{console.log("Successful");
-      const PanelDelete = <HTMLElement>document.querySelector('.modaldeleted');  //alert for successful panelist addition
-      PanelDelete.style.display='block'; 
-      setTimeout(() => {
-        PanelDelete.style.display='none'; 
-      }, 3000);	
-      }
-    );
-    this.Panelists=[];
-    this.sorts=[];
-    this.sorts1=[];
-    setTimeout(() => {
-      this.Table.getPanelists().subscribe((data)=>
+    if(confirm("Are you sure you want to delete panelist "+username + " ?"))
     {
-      console.log(data);
-        this.Panelists.push(data);
-      this.ConvergeCat(this.sstorage.retrieve('category'));
-      this.ConvergeRound(this.sstorage.retrieve('round'));
-        this.Roundno=this.sstorage.retrieve('round');   
-        this.Category1=this.sstorage.retrieve('category'); 
-    });
-    }, 3000);
-    
+      this.Table.deletePanelist(username).subscribe(
+        data=>{console.log("Successful");
+        const PanelDelete = <HTMLElement>document.querySelector('.modaldeleted');  //alert for successful panelist addition
+        PanelDelete.style.display='block'; 
+        setTimeout(() => {
+          PanelDelete.style.display='none'; 
+        }, 3000);	
+        }
+      );
+      this.Panelists=[];
+      this.sorts=[];
+      this.sorts1=[];
+      setTimeout(() => {
+        this.Table.getPanelists().subscribe((data)=>
+      {
+        console.log(data);
+          this.Panelists.push(data);
+        this.ConvergeCat(this.sstorage.retrieve('category'));
+        this.ConvergeRound(this.sstorage.retrieve('round'));
+          this.Roundno=this.sstorage.retrieve('round');   
+          this.Category1=this.sstorage.retrieve('category'); 
+      });
+      }, 3000);
+    }  
   }
 }

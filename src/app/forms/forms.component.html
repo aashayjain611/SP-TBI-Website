@@ -8,11 +8,11 @@
                         <p class="category" style="font-size:20px">
                     </div>
                     <div class="category">
-                        <div class="col-md-6"></div>
-                        <div class="col-md-6">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-2">
                             <h5>Category</h5>
-                            <select (ngModelChange)="selectCategory($event)" [(ngModel)]="Category1" #Category="ngModel">
-                                <option selected >All</option>
+                            <select (ngModelChange)="selectCategoryStatus()" [(ngModel)]="category1" #Category="ngModel">
+                                <option selected >ALL</option>
                                 <option>CONSUMER</option>
                                 <option>E-COMMERCE</option>
                                 <option>EDUCATION</option>
@@ -20,6 +20,14 @@
                                 <option>LOGISTICS</option>
                                 <option>MANUFACTURING</option>
                                 <option>TECHNOLOGY</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <h5>Status</h5>
+                            <select (ngModelChange)="selectCategoryStatus()" [(ngModel)]="status1" #status="ngModel">
+                                <option selected >ALL</option>
+                                <option>ACCEPTED</option>
+                                <option>REJECTED</option>
                             </select>
                         </div>
                     </div>
@@ -31,23 +39,25 @@
                                     <th>Startup Idea</th>
                                     <th>Category</th>
                                     <th>Panelist</th>
-                                    <th>Rating</th>
-                                    <th>Note</th>
+                                    <th>Round</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr id="list" class="list" (click)="goToForm(stup.formid)" *ngFor="let stup of startups | paginate: {itemsPerPage: 3, currentPage:page, id: '1'}; let i = index" >
+                                    <tr id="list" class="list" (click)="goToForm(stup.formid)" *ngFor="let stup of startups | paginate: {itemsPerPage: 50, currentPage:page, id: '1'}; let i = index" >
                                             <td>{{stup.startupName}}</td>
                                             <td>{{stup.startupIdea}}</td>
                                             <td>{{stup.category}}</td>
                                             <td>{{stup.panelist}}</td>
-                                            <td ></td>
-                                            <td ></td>
+                                            <td>{{stup.round}}</td>
+                                            <td *ngIf="stup.status=='YES'" style="color:green">Accepted</td>
+                                            <td *ngIf="stup.status=='NO'" style="color:red" >Rejected</td>
+                                            <td>New</td>
                                         </tr>
                             </tbody>
                         </table>
                         <pagination-controls (pageChange)="page = $event" id="1"
-                            maxSize="5"
+                            maxSize="50"
                             directionLinks="true"
                             autoHide="true">
                         </pagination-controls>
@@ -71,43 +81,62 @@
                             <thead>
                                 <th style="width:200px"></th>
                                 <th></th>
+                                <th></th>
                             </thead>
                             <tbody style="font-size:15px" >
                                 <tr>
                                     <td class="heading">IDEA</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
                                     <td>{{currentevalStartup.startupIdea}}</td>
                                 </tr><br/>
                                 <tr>
                                         <td class="heading">DESCRIPTION</td>
+                                        <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
                                         <td>{{currentevalStartup.description}}</td>
                                     </tr><br/>
                                 <tr>
                                     <td class="heading" >Legal Entity</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
                                     <td>{{currentevalStartup.legalEntity}}</td>
                                 </tr><br/>
                                 <tr>
-                                    <td class="heading" >Working MOdel</td>
+                                    <td class="heading" >Working Model</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
                                     <td>{{currentevalStartup.workingIdea}}</td>
                                 </tr><br/>
                                 <tr>
                                     <td class="heading" >Operational Revenue</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
                                     <td>{{currentevalStartup.operationalRevenue}}</td>
                                 </tr><br/>
                                 <tr>
-                                    <td class="heading">primary Customer</td>
+                                    <td class="heading">Primary Customer</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
                                     <td>{{currentevalStartup.primaryCustomer}}</td>
                                 </tr><br/>
                                 <tr>
                                     <td class="heading">Targetted Pain Point</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
                                     <td>{{currentevalStartup.painPoint}}</td>
                                 </tr><br/>
                                 <tr>
                                         <td class="heading">Competitors</td>
+                                        <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
                                         <td>{{currentevalStartup.competitors}}</td>
                                     </tr><br/>
-                               
+                                <tr>
+                                    <td class="heading">Different From Competitors</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
+                                    <td>{{currentevalStartup.differentFromCompetitors}}</td>
+                                </tr><br/>
+                                 <tr>
+                                    <td class="heading">Monetization Model</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
+                                    <td>{{currentevalStartup.moneyModel}}</td>
+                                </tr><br/>
                                 <tr>
                                     <td class="heading">Founders</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
                                     <td >
                                         <div class="row" *ngFor="let f of currentevalStartup.founders">
                                             <div class="col-md-4">{{f.name}}</div>   
@@ -116,6 +145,16 @@
                                             <br/>
                                         </div>  
                                     </td>
+                                </tr><br/>
+                                <tr>
+                                    <td class="heading">Rating</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
+                                    <td>{{currentevalStartup.rating}}</td>
+                                </tr><br/>
+                                <tr>
+                                    <td class="heading">Note</td>
+                                    <td style="font-size:1.4em;font-weight:700;">:&nbsp;</td>
+                                    <td>{{currentevalStartup.note}}</td>
                                 </tr><br/>
                             </tbody>
                         </table>
