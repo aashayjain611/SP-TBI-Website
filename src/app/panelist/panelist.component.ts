@@ -57,13 +57,10 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
       });
       this.startupsCopy=this.startups;
     }
-    if(!this.sstorage.retrieve('limit'))
-    {
       this.userService.getLimit().subscribe((data)=>{
         this.limit=data['selectionLimit'];
         this.sstorage.store('limit',this.limit);
          });
-    }
    }
    ngOnInit()
    {
@@ -72,10 +69,6 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
     if(this.sstorage.retrieve('checkbox')=='true')
     {
       this.reject1=true;
-    }
-    if(this.sstorage.retrieve('limit'))
-    {
-      this.limit=this.sstorage.retrieve('limit');
     }
     if(this.sstorage.retrieve('startups'))
     {
