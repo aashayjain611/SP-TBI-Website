@@ -28,7 +28,7 @@
                                                         <span class="btnBefore"></span>
                                                         <span class="btnAfter"></span>
                                                 </button>
-                                                <button class="round1" id="round1end" *ngIf="!round1end" style="margin-top:15%;background-color:black;">
+                                                <button class="round1" id="round1end" *ngIf="!round1end" style="margin-top:15%;background-color:rgb(26, 63, 116,0.6);">
                                                     <span class="text" style="font-size:15px;"><b> Start Round 1</b></span>
                                                     <span class="btnBefore"></span>
                                                     <span class="btnAfter"></span>
@@ -38,7 +38,7 @@
                                                         <span class="btnBefore"></span>
                                                         <span class="btnAfter"></span>
                                                 </button>
-                                                <button class="round2" *ngIf="!round2end" id="round2end" style="margin-top:30%;margin-bottom:20%;background-color:black;">
+                                                <button class="round2" *ngIf="!round2end" id="round2end" style="margin-top:30%;margin-bottom:20%;background-color:rgb(26, 63, 116,0.6);">
                                                     <span class="text" style="font-size:15px;"><b> Start Round 2 </b></span>
                                                     <span class="btnBefore"></span>
                                                     <span class="btnAfter"></span>
@@ -74,6 +74,18 @@
                                                     <div class="col-md-3 col-sm-3">
                                                         <button class="btn btn-round btn-success" (click)="roundstart2()" style="width:90%;color:white;font-weight:700;">OK</button>
                                                     </div>
+                                                    <div class="col-md-3 col-sm-3">
+                                                        <button class="btn btn-round btn-danger" (click)="close()" style="width:90%;color:white;font-weight:700;">CANCEL</button>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div id="stopround2" class="stopround2"> 
+                                        <div class="modal-content animate">
+                                                <h4>Following Panelist have still not reviewed the given forms.</h4>
+                                                <h6 *ngFor="let panelist of pendingObject"><b>{{panelist.panelistNameWithPendingWork}}</b></h6>
+                                                <div class="row">
+                                                    <div class="col-md-9 col-sm-9"> </div>
                                                     <div class="col-md-3 col-sm-3">
                                                         <button class="btn btn-round btn-danger" (click)="close()" style="width:90%;color:white;font-weight:700;">CANCEL</button>
                                                     </div>

@@ -47,6 +47,11 @@ export class UserService{
     return this.http.get('assets/data/pending.json')
     // .flatMap((data) =>data.json());
   }
+  getPendingWorkNames()
+  {
+    return this.http.get('assets/data/pending.json')
+    .flatMap((data) =>data.json()); 
+  }
   gettingUser(username:string,password:string)
   {
     console.log('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password);

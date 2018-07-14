@@ -26,7 +26,7 @@ button#round1 ,button#round2, button#round1end, button#round2end{
     transition: all 0.5s ease-out;
     text-align: center;
     color: #fff;
-    background-color: #1a3f74;
+    background-color: rgb(26, 63, 116);
     text-decoration: none;
 }
 button#round1:hover ,button#round2:hover {
@@ -90,7 +90,7 @@ transition: width 0.5s ease, height 0.5s ease 0.5s, border-top-right-radius 0.1s
 -ms-transition: width 0.5s ease, height 0.5s ease 0.5s, border-top-right-radius 0.1s ease 0.4s, border-bottom-left-radius 0.1s ease 0.4s, border-bottom-right-radius 0.1s ease 0.9s, border-top-left-radius 0.1s ease 0.9s;
 }
 
-.modalround1 ,.modalround2 {
+.modalround1 ,.modalround2 ,.stopround2{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */

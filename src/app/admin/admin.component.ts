@@ -21,6 +21,7 @@ export class AdminComponent implements OnInit {
   round1end:boolean=true;
   round2end:boolean=true;
   pendingData:any={};
+  pendingObject=[];
   constructor(private Location:PlatformLocation,private Table: TableService, private router: Router, private logger: LoginToggleService,private userService: UserService,public sstorage:SessionStorageService) {
     Location.onPopState(() => {
       if(window.location.pathname!='/admin')
@@ -47,6 +48,8 @@ export class AdminComponent implements OnInit {
   ModalRound1.style.display='none';
   const ModalRound2 = <HTMLElement>document.querySelector('.modalround2');  //alert for successful panelist addition
   ModalRound2.style.display='none'; 
+  const StopRound2 = <HTMLElement>document.querySelector('.stopround2');  //alert for successful panelist addition
+  StopRound2.style.display='none';
  }
  roundstart1()
  {
@@ -66,13 +69,19 @@ export class AdminComponent implements OnInit {
       if(this.pendingData.length==0)
       {
         console.log('null');
+        this.round2end=false;
         // this.userService.sendRound2().subscribe((data)=>{
-        //   this.round2end=false;
+        //  
         //   console.log("successful");
         // });
       }
       else{
-        console.log('pending work exists');
+        this.pendingObject=[];
+        this.userService.getPendingWorkNames().subscribe((data)=>{
+          this.pendingObject.push(data);
+        });
+        const StopRound2 = <HTMLElement>document.querySelector('.stopround2');  //alert for successful panelist addition
+        StopRound2.style.display='block';
       }
    });
   
