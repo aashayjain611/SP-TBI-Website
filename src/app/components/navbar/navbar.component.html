@@ -2,15 +2,23 @@
     <div class="container-fluid">
         <div class="navbar-header">
                 <div  *ngIf="Logged" class="navbar-brand" style="font-weight: 500;font-size: 20px;">   <!--for cite-->
-                    &nbsp;&nbsp;&nbsp;Centre For Innovation and <br class="visible-xs"/>Technology Entrepreneurship
+                    Centre For Innovation and <br class="visible-xs"/>Technology Entrepreneurship
                     <!-- &nbsp;&nbsp;&nbsp;CITE -->
                 </div>
-                <div *ngIf="!Logged && admin" class="navbar-brand" style="font-weight: 500;font-size: 20px;"> <!--for admin-->
-                    Hello , Admin
+                <div class="row">
+                    <div class="col-md-3"><img *ngIf="!Logged && admin" src="/assets/img/head.png" style="width:40px;height:40px;"/></div>
+                    <div *ngIf="!Logged && admin" class="navbar-brand col-md-9" style="font-weight: 500;font-size: 20px;"> <!--for admin-->
+                        Hello , Admin
+                   </div>
                 </div>
-                <div *ngIf="!Logged && !admin" class="navbar-brand" style="font-weight: 500;font-size: 20px;"> <!--for panelist-->
-                    Hello , {{panelname}}
-                </div>
+                
+                <div class="row">
+                        <div class="col-md-3"><img *ngIf="!Logged && !admin" src="/assets/img/head.png" style="width:40px;height:40px;"/></div>
+                        <div *ngIf="!Logged && !admin" class="navbar-brand" style="font-weight: 500;font-size: 20px;"> <!--for panelist-->
+                            Hello , {{panelname}}
+                        </div>
+                    </div>
+                
             <button  type="button" class="navbar-toggle" data-toggle="collapse" (click)="sidebarToggle()">
                 <span class="sr-only"></span>
                 <span class="icon-bar"></span>

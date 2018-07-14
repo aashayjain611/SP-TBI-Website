@@ -9,11 +9,11 @@
 }
 
 @-webkit-keyframes slide {
-    100% { left: 0; }
+    100% { left: 40px; }
 }
 
 @keyframes slide {
-    100% { left: 0; }
+    100% { left: 40px; }
 }
 .form-control, .form-group .form-control {
     border: 0;
