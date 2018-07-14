@@ -3,6 +3,7 @@ import { startupForm } from '../shared/models/user.model';
 import { UserService } from '../shared/service/user.service';
 import {SessionStorageService, SessionStorage} from 'ngx-webstorage';
 import { Jsonp } from '@angular/http';
+import { PlatformLocation } from '@angular/common';
 declare var $: any;
 @Component({
   selector: 'app-panelist',
@@ -44,8 +45,14 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
   startupsBeforeReject:string;  //maintains a copy before reject
   startupsWhileReject=[];
   
-  constructor(private userService:UserService, public sstorage:SessionStorageService) {
+  constructor(private Location:PlatformLocation,private userService:UserService, public sstorage:SessionStorageService) {
     console.log("constructor-panelist");
+    Location.onPopState(() => {
+      if(window.location.pathname!='/panelist')
+      {
+        this.Location.forward();
+      }   
+      });
     this.getData();
    }
    getData()

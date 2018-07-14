@@ -62,8 +62,8 @@ export class TableService {
 
     getPanelists(){
       console.log('Aashay rocks');
-      // return this.http.get('assets/data/panelist.json')
-      return this.http.get('http://localhost:8080/sptbi/webapi/admin/getPanelists')
+       return this.http.get('assets/data/panelist.json')
+      //return this.http.get('http://localhost:8080/sptbi/webapi/admin/getPanelists')
       .flatMap((data) =>data.json());  
     }
 

@@ -5,6 +5,7 @@ import { LoginToggleService } from '../login-toggle.service';
 import { PlatformLocation } from '@angular/common';
 import { UserService } from '../shared/service/user.service';
 import { SessionStorageService } from 'ngx-webstorage';
+import { JSONP_ERR_NO_CALLBACK } from '@angular/common/http/src/jsonp';
 
 @Component({
   selector: 'app-admin',
@@ -19,13 +20,14 @@ export class AdminComponent implements OnInit {
   time: Date;
   round1end:boolean=true;
   round2end:boolean=true;
+  pendingData:any={};
   constructor(private Location:PlatformLocation,private Table: TableService, private router: Router, private logger: LoginToggleService,private userService: UserService,public sstorage:SessionStorageService) {
     Location.onPopState(() => {
-    if(window.location.pathname!='/admin')
-    {
-      this.Location.forward();
-    }
-      
+      if(window.location.pathname!='/admin')
+      {
+        alert ("You need to log Out !");
+        this.Location.forward();   
+      }   
     });
     this.userService.getClock().subscribe(time => this.time = time);
     
@@ -57,10 +59,23 @@ export class AdminComponent implements OnInit {
  roundstart2()
  {
    this.close();
-   this.round2end=false;
-  this.userService.sendRound2().subscribe((data)=>{
-    console.log("successful");
-  });
+   console.log('start');
+   this.userService.checkPendingWork().subscribe((data)=>{
+    console.log('first pending');
+      this.pendingData=data.json();
+      if(this.pendingData.length==0)
+      {
+        console.log('null');
+        // this.userService.sendRound2().subscribe((data)=>{
+        //   this.round2end=false;
+        //   console.log("successful");
+        // });
+      }
+      else{
+        console.log('pending work exists');
+      }
+   });
+  
  }
 
   ngOnInit() {

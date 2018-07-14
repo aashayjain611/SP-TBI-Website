@@ -10,7 +10,8 @@
                         <!--<div class="card-content"> -->
                        
                         <div class="willscroll">
-                            <h6 class="heading">STARTUP REGISTRATION FORM</h6>
+                            <h6 class="heading hidden-xs">STARTUP REGISTRATION FORM</h6>
+                            <h6 class="heading visible-xs" style="font-size:2em;">STARTUP REGISTRATION FORM</h6>
                             <form *ngIf="reg_open" #startup="ngForm" (ngSubmit)="login(startup)">
                             <div [hidden]="startup.submitted">
 
@@ -275,7 +276,7 @@
                                 <br/><br/>
 
                                 <div class="form-group label-floating is-empty">
-                                        <label class="control-label" style="font-size:20px">What will your Company do ?</label>
+                                        <label class="control-label" style="font-size:20px">What will your Company do ?</label><br /><br class="visible-xs"/><br class="visible-xs"/>
                                         <textarea class="form-control" rows="3" name="company" id="company" required minlength="3" maxlength="600" [(ngModel)]="name2" #company="ngModel"></textarea>
                                         <div *ngIf="company.invalid && (company.dirty ||company.touched)" class="alert alert-danger">
     
@@ -293,7 +294,7 @@
                                  </div>  
 
                                 <div class="form-group label-floating is-empty">
-                                        <label class="control-label" style="font-size:20px">What is the customer Pain point you are trying to solve ?</label>
+                                        <label class="control-label" style="font-size:20px">What is the customer Pain point you are trying to solve ?</label><br /><br class="visible-xs"/><br class="visible-xs"/>
                                         
                                         
                                         <textarea class="form-control" rows="3" name="pain" id="pain" required minlength="3" maxlength="600" [(ngModel)]="name3" #pain="ngModel"></textarea>
@@ -313,7 +314,7 @@
                                 </div> 
 
                                 <div class="form-group label-floating is-empty">
-                                        <label class="control-label" style="font-size:20px">Who is your primary customer ?</label>
+                                        <label class="control-label" style="font-size:20px">Who is your primary customer ?</label><br /><br class="visible-xs"/><br class="visible-xs"/>
                                         <textarea class="form-control" rows="3" name="customer" id="customer" required minlength="3" maxlength="600" [(ngModel)]="name4" #customer="ngModel"></textarea>
                                         <div *ngIf="customer.invalid && (customer.dirty ||customer.touched)" class="alert alert-danger">
     
@@ -331,7 +332,7 @@
                                 </div>   
 
                                 <div class="form-group label-floating is-empty">
-                                        <label class="control-label" style="font-size:20px">Write a few lines about your competitors</label>
+                                        <label class="control-label" style="font-size:20px">Write a few lines about your competitors</label><br /><br class="visible-xs"/><br class="visible-xs"/>
                                         <textarea class="form-control" rows="3" name="competitors" id="competitors" required minlength="3" maxlength="600" [(ngModel)]="name5" #competitors="ngModel"></textarea>
                                         <div *ngIf="competitors.invalid && (competitors.dirty ||competitors.touched)" class="alert alert-danger">
     
@@ -349,7 +350,7 @@
                                 </div>
 
                                 <div class="form-group label-floating is-empty">
-                                        <label class="control-label" style="font-size:20px">How are you different from your competition?</label>
+                                        <label class="control-label" style="font-size:20px">How are you different from your competition?</label><br /><br class="visible-xs"/><br class="visible-xs"/>
                                         <textarea class="form-control" rows="3" name="difference" id="difference" required minlength="3" maxlength="600" [(ngModel)]="name6" #difference="ngModel"></textarea>
                                         <div *ngIf="difference.invalid && (difference.dirty ||difference.touched)" class="alert alert-danger">
     
@@ -367,7 +368,7 @@
                                 </div> 
 
                                 <div class="form-group label-floating is-empty">
-                                        <label class="control-label" style="font-size:20px">Write details about monetization model of your idea . How will your Company make money ?</label><br/>
+                                        <label class="control-label" style="font-size:20px">Write details about monetization model of your idea . How will your Company make money ?</label><br /><br class="visible-xs"/><br class="visible-xs"/>
                                         <textarea class="form-control" rows="3" name="monetization" id="monetization" required minlength="3" maxlength="600" [(ngModel)]="name7" #monetization="ngModel"></textarea>
                                         <div *ngIf="monetization.invalid && (monetization.dirty ||monetization.touched)" class="alert alert-danger">
     

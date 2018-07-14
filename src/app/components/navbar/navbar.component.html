@@ -1,19 +1,27 @@
 <nav class="navbar navbar-transparent navbar-absolute">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" (click)="sidebarToggle()">
+                <div  *ngIf="Logged" class="navbar-brand" style="font-weight: 500;font-size: 20px;">   <!--for cite-->
+                    <!-- {{getTitle()}} -->Centre For Innovation and <br class="visible-xs"/>Technology Entrepreneurship
+                </div>
+                <div *ngIf="!Logged && admin" class="navbar-brand" style="font-weight: 500;font-size: 20px;"> <!--for admin-->
+                    Hello , Admin
+                </div>
+                <div *ngIf="!Logged && !admin" class="navbar-brand" style="font-weight: 500;font-size: 20px;"> <!--for panelist-->
+                    Hello , {{panelname}}
+                </div>
+            <button  type="button" class="navbar-toggle" data-toggle="collapse" (click)="sidebarToggle()">
                 <span class="sr-only"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <!-- <a class="navbar-brand" href="#">{{getTitle()}}</a> -->
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                    <li>
+                    <!-- <li>
                             <button (click)="Dash()" type="button" rel="tooltip" title="Dashboard" class="btn btn-danger btn-simple"><i class="material-icons" style="font-size:20px;color:black;padding-bottom:5px">dashboard</i></button>
-                        </li>
+                        </li> -->
                         <li *ngIf="Logged">
                             <button onclick="document.getElementById('login').style.display='block'" type="button" rel="tooltip" title="LOG IN" class="btn btn-danger btn-simple"><i class="material-icons" style="font-size:20px;color:black;padding-bottom:5px" >person</i></button>
                         </li>

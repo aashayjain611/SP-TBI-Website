@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
   providers:[UserService,SessionStorageService]
 })
 export class NavbarComponent implements OnInit {
-    private eventsSubscription: any
+    private eventsSubscription: any;
     @Input() events: Observable<boolean>;
     @ViewChild('uname') uname:ElementRef;
     @ViewChild('psw') psw:ElementRef;
@@ -29,6 +29,8 @@ export class NavbarComponent implements OnInit {
     status="Logout";
     Logged:boolean=true;
     visible:boolean;
+    admin:boolean=true;
+    panelname:string;
     constructor(private userService: UserService, location: Location,  private element: ElementRef, private logger: LoginToggleService, private router: Router, private sstorage:SessionStorageService) {
         this.location = location;
         this.sidebarVisible = false;
@@ -53,6 +55,11 @@ export class NavbarComponent implements OnInit {
         if(this.sstorage.retrieve('logged'))
         {
             this.Logged=false;
+        }
+        if(this.sstorage.retrieve('usertype'))
+        {
+            this.panelname=this.sstorage.retrieve('username');
+            this.admin=false;
         }
         this.adminValidated();
         this.eventsSubscription = this.events.subscribe((data) => {
@@ -140,7 +147,10 @@ export class NavbarComponent implements OnInit {
 				
                 if(this.userService.userType===1) //user is panelist
             {
-				this.sstorage.store('username',this.userService.userName);	
+                this.panelname=this.userService.userName;
+                this.admin=false;
+                this.sstorage.store('username',this.userService.userName);
+                this.sstorage.store('usertype','false');	
               this.logger.loginSuccessful();
               this.logger.sendSignal(true);
               this.hideSide.emit(false);
@@ -148,7 +158,10 @@ export class NavbarComponent implements OnInit {
             }
             else if(this.userService.userType===2)  //user is panelist
             {
-				this.sstorage.store('username',this.userService.userName);
+                this.panelname=this.userService.userName;
+                this.admin=false;
+                this.sstorage.store('username',this.userService.userName);
+                this.sstorage.store('usertype','false');
               this.logger.loginSuccessful();
               this.logger.sendSignal(true);
               this.hideSide.emit(false);
@@ -156,7 +169,8 @@ export class NavbarComponent implements OnInit {
             }
             else if(this.userService.userType===3) //user is admin
             {
-				this.sstorage.store('username',this.userService.userName);
+                this.sstorage.store('username',this.userService.userName);
+                
               this.logger.loginSuccessful();
               this.logger.sendSignal(true);
               this.hideSide.emit(false);
@@ -197,6 +211,7 @@ export class NavbarComponent implements OnInit {
         this.sstorage.clear('checkbox');
         this.sstorage.clear('limit');
         this.sstorage.clear('username');
+        this.sstorage.clear('usertype');
         this.Logged=true;
         this.hideSide.emit(true);
         this.router.navigate(['dashboard']);
