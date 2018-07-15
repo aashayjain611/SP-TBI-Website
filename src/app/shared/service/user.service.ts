@@ -29,37 +29,37 @@ export class UserService{
  
   sendRound1()    //round1 has started
   {
-    return this.http.get('')
+    return this.http.get('http://localhost:8080/sptbi/webapi/admin?endRound=1')
     .flatMap((data) =>(data.json()));
   }
   sendRound2()  //round2 has started
   {
-    return this.http.get('')
+    return this.http.get('http://localhost:8080/sptbi/webapi/admin?endRound=2')
     .flatMap((data) =>(data.json()));
   }
   getRound()    //round details has started
   {
-    return this.http.get('assets/data/round.json')
-    .flatMap((data) =>data.json());
+    return this.http.get('http://localhost:8080/sptbi/webapi/admin/getRoundStatus')
+    .flatMap((data) =>Observable.of(data.json()));
   }
   checkPendingWork()
   {
-    return this.http.get('assets/data/pending.json')
+    return this.http.get('http://localhost:8080/sptbi/webapi/admin/getPanelistWithPendingForms')
     // .flatMap((data) =>data.json());
   }
   getPendingWorkNames()
   {
-    return this.http.get('assets/data/pending.json')
+    return this.http.get('http://localhost:8080/sptbi/webapi/admin/getPanelistWithPendingForms')
     .flatMap((data) =>data.json()); 
   }
   gettingUser(username:string,password:string)
   {
     console.log('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password);
-    return this.http.get('assets/data/user.json')
-    .flatMap((data) =>(data.json()));
+    // return this.http.get('assets/data/user.json')
+    // .flatMap((data) =>(data.json()));
    
-  //  return this.http.get('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password)          //getting UserType
-  //   .flatMap((data) =>Observable.of(data.json()));
+   return this.http.get('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password)          //getting UserType
+    .flatMap((data) =>Observable.of(data.json()));
   }
   getLimit(){
     return this.http.get('http://localhost:8080/sptbi/webapi/panelist/limit/'+this.sstorage.retrieve('username'))
@@ -71,8 +71,8 @@ export class UserService{
     this.userName=this.sstorage.retrieve('username');
     console.log('http://localhost:8080/sptbi/webapi/panelist/'+this.sstorage.retrieve('username'));
     
-   //return this.http.get('http://localhost:8080/sptbi/webapi/panelist/'+this.sstorage.retrieve('username'))
-   return this.http.get('assets/data/register.json')          //getting UserType
+   return this.http.get('http://localhost:8080/sptbi/webapi/panelist/'+this.sstorage.retrieve('username'))
+  //  return this.http.get('assets/data/register.json')          //getting UserType
     .flatMap((data) =>data.json());
   }
 

@@ -36,7 +36,7 @@ tr.list:hover{
     line-height: 1.5em;
 }
 .viewingForm{
-    background-image: url("/Users/aashayjain611/Downloads/SP-TBI-Website-master-5/src/assets/img/formbg.jpg");
+    background-image: url("/assets/img/formbg.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

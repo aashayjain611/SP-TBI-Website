@@ -70,10 +70,10 @@ export class AdminComponent implements OnInit {
       {
         console.log('null');
         this.round2end=false;
-        // this.userService.sendRound2().subscribe((data)=>{
-        //  
-        //   console.log("successful");
-        // });
+        this.userService.sendRound2().subscribe((data)=>{
+         
+          console.log("successful");
+        });
       }
       else{
         this.pendingObject=[];
