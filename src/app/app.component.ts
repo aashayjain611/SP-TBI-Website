@@ -92,7 +92,7 @@ export class AppComponent implements OnInit,OnChanges {
             const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
             const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
             if (window.matchMedia(`(min-width: 991px)`).matches){
-                elemMainPanel.style.width='81%';
+                elemMainPanel.style.width='calc(100% - 260px)';
             }
             else
             {

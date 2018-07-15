@@ -166,3 +166,24 @@ var myExtObject =(function () {
         }
     }  
 })(myExtObject||{})
+
+// var myExtObjectNew=(function () { 
+//     return {
+//         start:function(){
+//             var text = $(".text");
+//             $(window).scroll(function() {
+//             var scroll = $(window).scrollTop();
+        
+//             if (scroll >= 2) {
+//                 text.removeClass("hidden");
+//                 console.log('hello');
+//             } else {
+//                 text.addClass("hidden");
+//                 console.log('helloelse');
+//             }
+//             });
+//         }
+//     }
+// })(myExtObjectNew||{})
+
+ 

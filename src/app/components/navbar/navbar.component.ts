@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input,NgModule, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ElementRef, Input,NgModule, ViewChild, Output, EventEmitter, HostListener, Renderer2 } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { LoginToggleService } from '../../login-toggle.service';
@@ -9,6 +9,9 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { SessionStorageService } from 'ngx-webstorage';
 import { Observable } from 'rxjs';
+// import '../../../assets/js/car.js';
+// declare var myExtObjectNew: any;
+//declare const $: any;
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -31,10 +34,11 @@ export class NavbarComponent implements OnInit {
     visible:boolean;
     admin:boolean=true;
     panelname:string;
-    constructor(private userService: UserService, location: Location,  private element: ElementRef, private logger: LoginToggleService, private router: Router, private sstorage:SessionStorageService) {
+    constructor(private renderer: Renderer2,private userService: UserService, location: Location,  private element: ElementRef, private logger: LoginToggleService, private router: Router, private sstorage:SessionStorageService) {
         this.location = location;
         this.sidebarVisible = false;
     }
+   
 
     close() {
         this.visible = false;
@@ -42,9 +46,24 @@ export class NavbarComponent implements OnInit {
     // Login(){
     //  this.router.navigate(['../user-profile']);
     // }
-   
+    // @HostListener('window:scroll', ['$event']) 
+    // scrollHandler(event) {
+    //   console.debug("Scroll Event");
+    //   $(window).scroll(function() {
+    //     var text = $(".text");
+    //     var scroll = $(window).scrollTop();
+    
+    //     if (scroll >= 2) {
+    //       console.log("hello");
+    //         text.removeClass("hidden");
+    //     } else {
+    //       console.log("heloo else");
+    //         text.addClass("hidden");
+    //     }
+    //     });
+    // }
     ngOnInit(){
-       
+      // myExtObjectNew.start();
         this.listTitles = ROUTES.filter(listTitle => listTitle);
         const navbar: HTMLElement = this.element.nativeElement;
         this.logger.newSubject.subscribe(

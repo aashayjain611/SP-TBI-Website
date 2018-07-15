@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer } from '@angular/core';
+import { HostListener} from "@angular/core";
 import * as Chartist from 'chartist';
 import '../../assets/js/car.js';
 declare var myExtObject: any;
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,9 +12,12 @@ declare var myExtObject: any;
 
 export class DashboardComponent implements OnInit {
   
-  constructor() {
+  constructor(private renderer: Renderer) {
+  
   
    }
+
+ 
  /* startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -71,6 +76,7 @@ export class DashboardComponent implements OnInit {
   };*/
   ngOnInit() {
     myExtObject.start();
+   
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
   /*    const dataDailySalesChart: any = {
