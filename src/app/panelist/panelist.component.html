@@ -4,7 +4,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header" data-background-color="red">
-                            <h4 class="title">Hello,&nbsp;{{uname}}</h4>
+                            <h4 class="title">List of Startups</h4>
                             <p class="category" style="font-size:20px">Limit : <strong>{{limit}}</strong></p><p class="category" style="font-size:20px"> Selected : <strong>{{count}}</strong></p>
                         </div>
 
@@ -68,8 +68,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        <tr  class="list" *ngFor="let stup of startups | paginate: {itemsPerPage: 20, currentPage:page, id: '1'}; let i = index" >
-                                                <td (click)="goToForm(stup.formid)" id=stup.formid name=stup.formid>{{stup.startupName}}</td>
+                                        <tr  (click)="goToForm(stup.formid)" class="list" *ngFor="let stup of startups | paginate: {itemsPerPage: 20, currentPage:page, id: '1'}; let i = index" >
+                                                <td  id=stup.formid name=stup.formid>{{stup.startupName}}</td>
                                                 <td>{{stup.startupIdea}}</td>
                                                 <td>{{stup.legalEntity}}</td>
                                                 <td>{{stup.operationalRevenue}}</td>

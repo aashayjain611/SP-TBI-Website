@@ -1,4 +1,4 @@
-<div class="main-content">
+<div class="main-content" style="margin-top:80px;">
         <!-- <div class="container-fluid"> -->
 <!--            
                      <div class="card" style="width:75%;margin-left:12.5%;">
@@ -16,7 +16,7 @@
                             <div [hidden]="startup.submitted">
 
                                 <div class="form-group label-floating is-empty">
-                                        <label class="control-label" style="font-size:20px;" for="idea">Startup Name</label>
+                                        <label class="control-label" style="font-size:20px;" for="idea">Startup Name</label><br /><br class="visible-xs"/>
                                         <input class="form-control" name="name" id="name" required minlength="2" maxlength="20" [(ngModel)]="name0" #name="ngModel"/>
                                         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
                                             <div *ngIf="name.errors.required">          
@@ -32,7 +32,7 @@
                                 </div>  
 
                                  <div class="form-group label-floating is-empty">
-                                    <label class="control-label" style="font-size:20px" for="idea">Startup Idea</label>
+                                    <label class="control-label" style="font-size:20px" for="idea">Startup Idea</label><br /><br class="visible-xs"/>
                                     <input class="form-control" name="idea" id="idea" required minlength="2" maxlength="20" [(ngModel)]="name1" #idea="ngModel"/>
                                     <div *ngIf="idea.invalid && (idea.dirty || idea.touched)" class="alert alert-danger">
 
@@ -56,7 +56,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <br/>
-                                                    <select (ngModelChange)="onSelectCategory($event)" name="category" id="category" style="width:max-content;font-size:20px;padding: 1% 5% 1% 5%;border-radius:5%;text-align:center" required [(ngModel)]="category1" #category="ngModel">
+                                                    <select (ngModelChange)="onSelectCategory($event)" name="category" id="category" style="width:max-content;font-size:20px;padding: 1% 5% 1% 5%;border-radius:10px;text-align:center" required [(ngModel)]="category1" #category="ngModel">
                                                         <option  [value]="i" *ngFor="let i of categories" style="font-size:20px;">{{i}}</option>
                                                     </select>
                                                 </div>

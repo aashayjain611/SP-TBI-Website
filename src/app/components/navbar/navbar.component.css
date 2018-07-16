@@ -1,20 +1,4 @@
-.navbar-brand {
 
-    position: absolute;
-    left: -700px;
-    -webkit-animation: slide 0.5s forwards;
-    -webkit-animation-delay: 1s;
-    animation: slide 0.5s forwards;
-    animation-delay: 1s;
-}
-
- @-webkit-keyframes slide { 
-    100% { left: 40px; }
-}
-
-@keyframes slide {
-    100% { left: 40px; }
-} */
 .form-control, .form-group .form-control {
     border: 0;
     background-image: linear-gradient(#2515d6, #2515d6), linear-gradient(#D2D2D2, #D2D2D2);

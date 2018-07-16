@@ -189,7 +189,7 @@ export class NavbarComponent implements OnInit {
             else if(this.userService.userType===3) //user is admin
             {
                 this.sstorage.store('username',this.userService.userName);
-                
+                this.admin=true;
               this.logger.loginSuccessful();
               this.logger.sendSignal(true);
               this.hideSide.emit(false);
@@ -218,7 +218,7 @@ export class NavbarComponent implements OnInit {
         }   
     }
     logout(){
-        if(confirm('Are you sure you want to Log Out ?')){
+        if(confirm('Are you sure you want to Log Out ?\n\nPress Submit button to save changes otherwise they will be lost !!')){
             this.sstorage.clear('logged');
         this.sstorage.clear('startupsBeforeReject');
         this.sstorage.clear('startupsCopy');
