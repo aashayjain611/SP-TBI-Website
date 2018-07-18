@@ -8,10 +8,10 @@
                         <p class="category" style="font-size:20px">
                     </div>
                     <div class="category">
-                        <div class="col-md-8"></div>
+                        <div class="col-md-6"></div>
                         <div class="col-md-2">
                             <h5>Category</h5>
-                            <select (ngModelChange)="selectCategoryStatus()" [(ngModel)]="category1" #Category="ngModel">
+                            <select (ngModelChange)="selectCategory($event)" [(ngModel)]="category1" #Category="ngModel">
                                 <option selected >ALL</option>
                                 <option>CONSUMER</option>
                                 <option>E-COMMERCE</option>
@@ -24,12 +24,20 @@
                         </div>
                         <div class="col-md-2">
                             <h5>Status</h5>
-                            <select (ngModelChange)="selectCategoryStatus()" [(ngModel)]="status1" #status="ngModel">
+                            <select (ngModelChange)="selectStatus($event)" [(ngModel)]="status1" #status="ngModel">
                                 <option selected >ALL</option>
                                 <option>ACCEPTED</option>
                                 <option>REJECTED</option>
                             </select>
                         </div>
+                        <div class="col-md-2">
+                                <h5>Round</h5>
+                                <select (ngModelChange)="selectRound($event)" [(ngModel)]="round1" #round="ngModel">
+                                    <option selected >ALL</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                            </div>
                     </div>
                     <div class="card-content table-responsive">
                         <table class="table">
@@ -52,7 +60,7 @@
                                             <td>{{stup.round}}</td>
                                             <td *ngIf="stup.status=='YES'" style="color:green">Accepted</td>
                                             <td *ngIf="stup.status=='NO'" style="color:red" >Rejected</td>
-                                            <td>New</td>
+                                            <td *ngIf="stup.status=='NEW'">New</td>
                                         </tr>
                             </tbody>
                         </table>

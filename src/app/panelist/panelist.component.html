@@ -7,7 +7,7 @@
                             <h4 class="title">List of Startups</h4>
                             <p class="category" style="font-size:20px">Limit : <strong>{{limit}}</strong></p><p class="category" style="font-size:20px"> Selected : <strong>{{count}}</strong></p>
                         </div>
-
+                        <br/>
                         <div class="row">
                             <div class="col-md-1 col-sm-0"></div>
                             <div class="col-md-1 col-sm-6">
@@ -68,12 +68,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        <tr  (click)="goToForm(stup.formid)" class="list" *ngFor="let stup of startups | paginate: {itemsPerPage: 20, currentPage:page, id: '1'}; let i = index" >
-                                                <td  id=stup.formid name=stup.formid>{{stup.startupName}}</td>
-                                                <td>{{stup.startupIdea}}</td>
-                                                <td>{{stup.legalEntity}}</td>
-                                                <td>{{stup.operationalRevenue}}</td>
-                                                <td>{{stup.workingIdea}}</td>
+                                        <tr  class="list" *ngFor="let stup of startups | paginate: {itemsPerPage: 20, currentPage:page, id: '1'}; let i = index" >
+                                                <td (click)="goToForm(stup.formid)" id=stup.formid name=stup.formid>{{stup.startupName}}</td>
+                                                <td (click)="goToForm(stup.formid)">{{stup.startupIdea}}</td>
+                                                <td (click)="goToForm(stup.formid)">{{stup.legalEntity}}</td>
+                                                <td (click)="goToForm(stup.formid)"> {{stup.operationalRevenue}}</td>
+                                                <td (click)="goToForm(stup.formid)">{{stup.workingIdea}}</td>
                                                 <td ><input class="alignment" [name]=stup.rating [(ngModel)]=stup.rating (ngModelChange)="sessionStoring($event)" style="border-width:0ch"/></td>
                                                 <td  ><textarea class="alignment" [name]=stup.note rows="2" [(ngModel)]=stup.note (ngModelChange)="sessionStoring($event)" style="border-width:0ch"></textarea></td>
                                                 <td  ><input type="radio" [name]=stup.startupName style="height:0%;width:0%;" [id]=stup.startupName  [value]="yes" [checked]="stup.status=='yes'"  (change)="onAcceptReject(stup.formid,'yes')"></td>
