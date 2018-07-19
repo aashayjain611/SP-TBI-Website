@@ -42,10 +42,10 @@ export class RegistrationComponent implements OnInit {
    }
 
   ngOnInit() {
-    //this.userService.getRound().subscribe((data)=>{
-      // if(data['']=='YES')
-      //   this.reg_open=false;
-    //});
+    this.userService.getRound().subscribe((data)=>{
+      if(data['statusEndRound1']=='END')
+        this.reg_open=false;
+    });
   }
   
 
