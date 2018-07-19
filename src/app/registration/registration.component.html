@@ -10,13 +10,13 @@
                         <!--<div class="card-content"> -->
                        
                         <div class="willscroll">
-                            <h6 class="heading hidden-xs">STARTUP REGISTRATION FORM</h6>
+                            <h6 class="heading hidden-xs">APPLICATION FORM</h6>
                             <h6 class="heading visible-xs" style="font-size:2em;">STARTUP REGISTRATION FORM</h6>
                             <form *ngIf="reg_open" #startup="ngForm" (ngSubmit)="login(startup)">
                             <div [hidden]="startup.submitted">
 
                                 <div class="form-group label-floating is-empty">
-                                        <label class="control-label" style="font-size:20px;" for="idea">Startup Name</label><br /><br class="visible-xs"/>
+                                        <label class="control-label" style="font-size:20px;" for="idea">Team/Company Name</label><br /><br class="visible-xs"/>
                                         <input class="form-control" name="name" id="name" required minlength="2" maxlength="20" [(ngModel)]="name0" #name="ngModel"/>
                                         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
                                             <div *ngIf="name.errors.required">          
@@ -32,7 +32,7 @@
                                 </div>  
 
                                  <div class="form-group label-floating is-empty">
-                                    <label class="control-label" style="font-size:20px" for="idea">Startup Idea</label><br /><br class="visible-xs"/>
+                                    <label class="control-label" style="font-size:20px" for="idea">Tell us about your idea</label><br /><br class="visible-xs"/>
                                     <input class="form-control" name="idea" id="idea" required minlength="2" maxlength="20" [(ngModel)]="name1" #idea="ngModel"/>
                                     <div *ngIf="idea.invalid && (idea.dirty || idea.touched)" class="alert alert-danger">
 
@@ -66,7 +66,7 @@
                                 <div class="form-group">
                                         <div class="row">
                                                 <div class="col-md-7">
-                                                    <label class="control-label" style="font-size:20px" >Are you registered legal entity ?</label>
+                                                    <label class="control-label" style="font-size:20px" >Have you registered your company ?</label>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label class="control-label" style="font-size:20px" >Yes  <input type="radio" name="legal"  [value]="Yes" (change)="onLegalChange('yes')" ></label>
@@ -79,7 +79,7 @@
                                 <div class="form-group">
                                         <div class="row">
                                                 <div class="col-md-7">
-                                                        <label class="control-label" style="font-size:20px" >Have you already started working on your idea ?</label>
+                                                        <label class="control-label" style="font-size:20px" >Do you have a prototype ?</label>
                                                 </div>
                                                 <div class="col-md-2">
                                                         <label class="control-label" style="font-size:20px" >Yes  <input type="radio" name="working"   [value]="Yes" (change)="onWorkingChange('yes')" ></label>
@@ -411,7 +411,7 @@
     <div id="modal" class="modalsuccess"> 
         <div class="modal-content animate">
           <div class="container" style="padding-left:3%;">  
-                <h2 style="font-size:20px;font-weight:700;margin-top:10px;"><span class="glyphicon glyphicon-ok-sign" style="color:green;font-size:30px;top:8px;"></span>  SUCCESSFUL REGISTRATION !</h2>
+                <h2 style="font-size:20px;font-weight:700;margin-top:10px;"><span class="glyphicon glyphicon-ok-sign" style="color:green;font-size:30px;top:8px;"></span>  Thank-you for submitting your idea. Our Evaluation Team will get back to you shortly !</h2>
           </div>
         </div>
     </div>
