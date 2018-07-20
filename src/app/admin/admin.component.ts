@@ -54,8 +54,9 @@ export class AdminComponent implements OnInit {
  roundstart1()
  {
    this.close();
-   this.round1end=false;
+   
   this.userService.sendRound1().subscribe((data)=>{
+    this.round1end=false;
     console.log("successful");
   });
  }
@@ -69,9 +70,9 @@ export class AdminComponent implements OnInit {
       if(this.pendingData.length==0)
       {
         console.log('null');
-        this.round2end=false;
+       
         this.userService.sendRound2().subscribe((data)=>{
-         
+          this.round2end=false;
           console.log("successful");
         });
       }

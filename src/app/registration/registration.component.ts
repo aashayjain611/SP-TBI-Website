@@ -23,7 +23,7 @@ export class RegistrationComponent implements OnInit {
   F6:{founderName:string,founderEmail:string,founderContact:number}={founderName:"",founderEmail:"",founderContact:0};
   FounderList:any[]=[];
   maximumFounders:number[]=[1,2,3,4,5,6];
-  categories:string[]=['Consumer','E-Commerce','Education','Healthcare','Logistics','Manufacturing','Technology'];
+  categories:string[]=['Consumer','E-Commerce','Education','Healthcare','Logistics','Manufacturing','Technology','Others'];
   selectedCategory='';
   selectedFounder = 1;
   legalEntity:string="";
