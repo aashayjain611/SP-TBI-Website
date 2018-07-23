@@ -32,7 +32,7 @@
                                                     <span class="text" style="font-size:15px;"><b> Start Round 1</b></span>
                                                     <span class="btnBefore"></span>
                                                     <span class="btnAfter"></span>
-                                            </button>
+                                                </button>
                                                 <button class="round2" *ngIf="round2end" id="round2" type="submit" (click)="Round2()" style="margin-top:30%;margin-bottom:20%">
                                                         <span class="text" style="font-size:15px;"><b> Start Round 2 </b></span>
                                                         <span class="btnBefore"></span>
@@ -42,7 +42,17 @@
                                                     <span class="text" style="font-size:15px;"><b> Start Round 2 </b></span>
                                                     <span class="btnBefore"></span>
                                                     <span class="btnAfter"></span>
-                                            </button>
+                                                </button>
+                                                <button class="startreg" *ngIf="round2end" id="startregend" style="margin-top:30%;margin-bottom:20%;background-color:rgb(26, 63, 116,0.6);">
+                                                    <span class="text" style="font-size:15px;"><b> Start Registration </b></span>
+                                                    <span class="btnBefore"></span>
+                                                    <span class="btnAfter"></span>
+                                                </button>
+                                                <button class="startreg" *ngIf="!round2end" id="startreg" type="submit" (click)="StartReg()" style="margin-top:30%;margin-bottom:20%;">
+                                                    <span class="text" style="font-size:15px;"><b> Start Registration </b></span>
+                                                    <span class="btnBefore"></span>
+                                                    <span class="btnAfter"></span>
+                                                </button>
                                         </div>
                                     </div>
                                     <img src="/assets/img/lastday.jpeg" width="100%" height="700px" style="opacity:0.5;position:absolute; left: 0;
@@ -80,6 +90,21 @@
                                                 </div>
                                         </div>
                                 </div>
+                                <div id="startregmodal" class="startregmodal"> 
+                                    <div class="modal-content animate">
+                                            <h3>Do you want to start the registration again ?</h3>
+                                            <h5><b>Please note that ALL the old registrations shall be deleted</b></h5>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6"> </div>
+                                                <div class="col-md-3 col-sm-3">
+                                                    <button class="btn btn-round btn-success" (click)="StartRegistration()" style="width:90%;color:white;font-weight:700;">OK</button>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3">
+                                                    <button class="btn btn-round btn-danger" (click)="close()" style="width:90%;color:white;font-weight:700;">CANCEL</button>
+                                                </div>
+                                            </div>
+                                    </div>
+                            </div>
                                 <div id="stopround2" class="stopround2"> 
                                         <div class="modal-content animate">
                                                 <h4>Following Panelist have still not reviewed the given forms.</h4>

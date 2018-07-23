@@ -8,7 +8,7 @@
     background-color:transparent;
 } */
 
-button#round1 ,button#round2, button#round1end, button#round2end{
+button#round1 ,button#round2, button#round1end, button#round2end, button#startreg,button#startregend{
    
     border-radius: 5px;
     margin-top: 10px;
@@ -29,7 +29,7 @@ button#round1 ,button#round2, button#round1end, button#round2end{
     background-color: rgb(26, 63, 116);
     text-decoration: none;
 }
-button#round1:hover ,button#round2:hover {
+button#round1:hover ,button#round2:hover, button#startreg:hover {
     background: #f1f1f1 !important;
 }
 
@@ -43,7 +43,7 @@ span {
     -o-transition: 0.3s ease;
     -ms-transition: 0.3s ease;
 }
-button#round1:hover span, button#round2:hover span {
+button#round1:hover span, button#round2:hover span, button#startreg:hover span {
     color: #5a5a5a;
 }
 .btnBefore, .btnAfter {
@@ -65,22 +65,22 @@ button#round1:hover span, button#round2:hover span {
     border-color: #1a3f74;
     border-radius: 5px;
 }
-button#round1 .btnBefore,button#round2 .btnBefore {
+button#round1 .btnBefore,button#round2 .btnBefore ,button#startreg .btnBefore {
     right: 0;
     bottom: 0;
 }
-button#round1 .btnAfter,button#round2 .btnAfter  {
+button#round1 .btnAfter,button#round2 .btnAfter ,button#startreg .btnAfter  {
     left: 0;
     top: 0;
 }
-button#round1:hover .btnBefore,button#round2:hover .btnBefore {
+button#round1:hover .btnBefore,button#round2:hover .btnBefore,button#startreg:hover .btnBefore {
     border-width: 0 0 3px 3px;
 }
-button#round1:hover .btnAfter,button#round2:hover .btnAfter {
+button#round1:hover .btnAfter,button#round2:hover .btnAfter ,button#startreg:hover .btnAfter{
     border-width: 3px 3px 0 0;
 }
 
-button#round1:hover .btnAfter, button#round1:hover .btnBefore,button#round2:hover .btnAfter, button#round2:hover .btnBefore {
+button#round1:hover .btnAfter, button#round1:hover .btnBefore,button#round2:hover .btnAfter, button#round2:hover .btnBefore,button#startreg:hover .btnAfter, button#startreg:hover .btnBefore {
 height: 100%;
 width: 100%;
 transition: width 0.5s ease, height 0.5s ease 0.5s, border-top-right-radius 0.1s ease 0.4s, border-bottom-left-radius 0.1s ease 0.4s, border-bottom-right-radius 0.1s ease 0.9s, border-top-left-radius 0.1s ease 0.9s;
@@ -90,7 +90,7 @@ transition: width 0.5s ease, height 0.5s ease 0.5s, border-top-right-radius 0.1s
 -ms-transition: width 0.5s ease, height 0.5s ease 0.5s, border-top-right-radius 0.1s ease 0.4s, border-bottom-left-radius 0.1s ease 0.4s, border-bottom-right-radius 0.1s ease 0.9s, border-top-left-radius 0.1s ease 0.9s;
 }
 
-.modalround1 ,.modalround2 ,.stopround2{
+.modalround1 ,.modalround2 ,.stopround2, .startregmodal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */

@@ -42,6 +42,10 @@ export class UserService{
     return this.http.get('http://localhost:8080/sptbi/webapi/admin/getRoundStatus')
     .flatMap((data) =>Observable.of(data.json()));
   }
+  startRegistration(){
+    return this.http.get('http://localhost:8080/sptbi/webapi/admin/startRegistration')
+    .flatMap((data) =>(data.json()));
+  }
   checkPendingWork()
   {
     return this.http.get('http://localhost:8080/sptbi/webapi/admin/getPanelistWithPendingForms')

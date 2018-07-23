@@ -20,6 +20,7 @@ export class AdminComponent implements OnInit {
   time: Date;
   round1end:boolean=true;
   round2end:boolean=true;
+  startreg:boolean=true;
   pendingData:any={};
   pendingObject=[];
   constructor(private Location:PlatformLocation,private Table: TableService, private router: Router, private logger: LoginToggleService,private userService: UserService,public sstorage:SessionStorageService) {
@@ -43,6 +44,11 @@ export class AdminComponent implements OnInit {
   const ModalRound2 = <HTMLElement>document.querySelector('.modalround2');  //alert for successful panelist addition
   ModalRound2.style.display='block'; 
  }
+ StartReg()
+ {
+  const startregmodal = <HTMLElement>document.querySelector('.startregmodal');  //alert for successful panelist addition
+  startregmodal.style.display='block';
+ }
  close(){
   const ModalRound1 = <HTMLElement>document.querySelector('.modalround1');  //alert for successful panelist addition
   ModalRound1.style.display='none';
@@ -50,13 +56,15 @@ export class AdminComponent implements OnInit {
   ModalRound2.style.display='none'; 
   const StopRound2 = <HTMLElement>document.querySelector('.stopround2');  //alert for successful panelist addition
   StopRound2.style.display='none';
+  const startregmodal = <HTMLElement>document.querySelector('.startregmodal');  //alert for successful panelist addition
+  startregmodal.style.display='none';
  }
  roundstart1()
  {
    this.close();
-   
+   this.round1end=false;
   this.userService.sendRound1().subscribe((data)=>{
-    this.round1end=false;
+    
     console.log("successful");
   });
  }
@@ -70,9 +78,9 @@ export class AdminComponent implements OnInit {
       if(this.pendingData.length==0)
       {
         console.log('null');
-       
+        this.round2end=false;
         this.userService.sendRound2().subscribe((data)=>{
-          this.round2end=false;
+          
           console.log("successful");
         });
       }
@@ -87,7 +95,16 @@ export class AdminComponent implements OnInit {
    });
   
  }
+ StartRegistration(){
+   this.close();
+  this.round1end=true;
+  this.round2end=true;
+   this.userService.startRegistration().subscribe((data)=>{
 
+    console.log("successful");
+  });
+
+ }
   ngOnInit() {
        this.userService.getRound().subscribe((data)=>{
          if(data['statusEndRound1']=='END')
