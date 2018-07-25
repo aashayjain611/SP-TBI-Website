@@ -55,7 +55,7 @@ export class TableService {
       console.log(s);
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
-      return this.http.delete('http://localhost:8080/sptbi/webapi/admin/'+s)
+      return this.http.delete('http://localhost:8080/sptbi/webapi/admin?username='+encodeURIComponent(s))
                  .map(this.extractData)
                  .catch(this.handleErrorObservable);
     }

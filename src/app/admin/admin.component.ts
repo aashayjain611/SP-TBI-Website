@@ -78,10 +78,14 @@ export class AdminComponent implements OnInit {
       if(this.pendingData.length==0)
       {
         console.log('null');
-        this.round2end=false;
-        this.userService.sendRound2().subscribe((data)=>{
-          
+        this.userService.sendRound2().subscribe((data)=>{  
           console.log("successful");
+        });
+        this.userService.getRound().subscribe((data)=>{
+          if(data['statusEndRound2']=='END')
+          {
+            this.round2end=false;
+          }
         });
       }
       else{

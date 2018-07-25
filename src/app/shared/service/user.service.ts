@@ -58,24 +58,24 @@ export class UserService{
   }
   gettingUser(username:string,password:string)
   {
-    console.log('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password);
+    console.log('http://localhost:8080/sptbi/webapi/login?username='+encodeURIComponent(username)+'&password='+encodeURIComponent(password));
     //return this.http.get('assets/data/user.json')
     //.flatMap((data) =>(data.json()));
    
-   return this.http.get('http://localhost:8080/sptbi/webapi/login?username='+username+'&password='+password)          //getting UserType
+   return this.http.get('http://localhost:8080/sptbi/webapi/login?username='+encodeURIComponent(username)+'&password='+encodeURIComponent(password))          //getting UserType
     .flatMap((data) =>Observable.of(data.json()));
   }
   getLimit(){
-    return this.http.get('http://localhost:8080/sptbi/webapi/panelist/limit/'+this.sstorage.retrieve('username'))
+    return this.http.get('http://localhost:8080/sptbi/webapi/panelist/limit?username='+encodeURIComponent(this.sstorage.retrieve('username')))
     // return this.http.get('panelist/'+this.userName)          //getting UserType
      .flatMap((data) =>Observable.of(data.json()));
   }
   getList()   //sends list of registration forms to panelist
   {
     this.userName=this.sstorage.retrieve('username');
-    console.log('http://localhost:8080/sptbi/webapi/panelist/'+this.sstorage.retrieve('username'));
+    console.log('http://localhost:8080/sptbi/webapi/panelist?username='+encodeURIComponent(this.sstorage.retrieve('username')));
     
-   return this.http.get('http://localhost:8080/sptbi/webapi/panelist/'+this.sstorage.retrieve('username'))
+   return this.http.get('http://localhost:8080/sptbi/webapi/panelist?username='+encodeURIComponent(this.sstorage.retrieve('username')))
     //return this.http.get('assets/data/register.json')          //getting UserType
     .flatMap((data) =>data.json());
   }
@@ -84,7 +84,7 @@ export class UserService{
   {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post('http://localhost:8080/sptbi/webapi/panelist/update/'+this.sstorage.retrieve('username'),JSON.stringify(forms), options)
+    return this.http.post('http://localhost:8080/sptbi/webapi/panelist/update?username='+encodeURIComponent(this.sstorage.retrieve('username')),JSON.stringify(forms), options)
                .map(this.extractData)
                .catch(this.handleErrorObservable);
   }
@@ -111,7 +111,8 @@ export class UserService{
   }
   verName(name:string)
   {
-    return this.http.get('')
+    console.log('http://localhost:8080/sptbi/webapi/startup?checkStartupName='+encodeURIComponent(name));
+    return this.http.get('http://localhost:8080/sptbi/webapi/startup?checkStartupName='+encodeURIComponent(name))
     .flatMap((data) =>Observable.of(data.json()));
   }
   extractData(res: Response) {
