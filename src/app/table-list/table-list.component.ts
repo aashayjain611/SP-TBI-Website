@@ -51,7 +51,7 @@ export class TableListComponent implements OnInit {
       alert("Some Fields are missing");
       return;
     }	
-    TableListComponent.obj={"round":e.target.elements[2].value,"userName":e.target.elements[0].value, "password":e.target.elements[1].value,"selectionLimit":e.target.elements[4].value,"category":e.target.elements[3].value};
+    TableListComponent.obj={"round":e.target.elements[2].value,"username":e.target.elements[0].value, "password":e.target.elements[1].value,"selectionLimit":e.target.elements[4].value,"category":e.target.elements[3].value};
     TableListComponent.output=TableListComponent.obj;
     console.log(TableListComponent.output);
     this.Table.addToList(TableListComponent.output);
