@@ -56,12 +56,6 @@ export class RegistrationComponent implements OnInit {
 
   login(f:NgForm)
   {
-    this.userService.verName(this.namename).subscribe((data)=>{
-      if(true)
-      {
-        this.namename="";
-      }
-    });
     this.u=new startupForm();
     this.F1.founderName=f.value.founder1name;
     this.F1.founderContact=parseInt(f.value.founder1contact,10);
@@ -119,19 +113,28 @@ export class RegistrationComponent implements OnInit {
     this.u.workingIdea=this.workingModel;
     this.u.operationalRevenue=this.operationalRevenue;
     console.log(this.u);
-    this.userService.submitRegistration(this.u).subscribe(
-      startupForm => {
-        console.log("successful");	
-        const Popup = <HTMLElement>document.querySelector('.modalsuccess');
-        Popup.style.display='block'; 
-        console.log(this.success);
-        setTimeout(() => {
-          Popup.style.display='none'; 
-          this.router.navigate(['dashboard']);
-        }, 3000);				   
+    this.userService.verName(this.namename).subscribe((data)=>{
+      if(data['check']=='YES')
+      {
+        console.log('Duplicate startup name');
+        this.namename="";
       }
-    );
-   
+      else
+      {
+        this.userService.submitRegistration(this.u).subscribe(
+          startupForm => {
+            console.log("successful");	
+            const Popup = <HTMLElement>document.querySelector('.modalsuccess');
+            Popup.style.display='block'; 
+            console.log(this.success);
+            setTimeout(() => {
+              Popup.style.display='none'; 
+              this.router.navigate(['dashboard']);
+            }, 3000);				   
+          }
+        ); 
+      }
+    });
     //INITIALISING THE STARTUPFORM U VARIABLE
 
 

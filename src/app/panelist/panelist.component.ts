@@ -124,7 +124,9 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
         console.log("successful");					   
       });
       this.destroying();  
-      this.legal1=this.revenue1=this.work1='SELECT ALL';this.reject1=false;
+      this.legal1='SELECT ALL';this.revenue1='SELECT ALL';this.work1='SELECT ALL';this.reject1=false;
+      this.legalOption='SELECT ALL';this.workingOption='SELECT ALL';this.revenueOption='SELECT ALL';
+      this.flags=[false,false,false];
       setTimeout(() => {
         this.startups=[];      //this varies with filtration
         this.startupsCopy=[];  //this remains the same as original copy ...doesnt change ever
