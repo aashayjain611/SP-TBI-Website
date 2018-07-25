@@ -61,8 +61,8 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
     {
       this.userService.getList().subscribe((data)=>{
             this.startups.push(data);
+            this.startupsCopy.push(data);
       });
-      this.startupsCopy=this.startups;
     }
       this.userService.getLimit().subscribe((data)=>{
         this.limit=data['selectionLimit'];
@@ -127,14 +127,14 @@ export class PanelistComponent implements OnInit,OnChanges,OnDestroy {
       this.legal1=this.revenue1=this.work1='SELECT ALL';this.reject1=false;
       setTimeout(() => {
         this.startups=[];      //this varies with filtration
-      this.startupsCopy=[];  //this remains the same as original copy ...doesnt change ever
-      this.temp=[];            //this is used to push forms that satisfy condition in loop
-      this.moretemp=[];
-      this.startupsBeforeReject='';  //maintains a copy before reject
-      this.startupsWhileReject=[];
-      this.count=0;
-      this.getData();
-      }, 1000);
+        this.startupsCopy=[];  //this remains the same as original copy ...doesnt change ever
+        this.temp=[];            //this is used to push forms that satisfy condition in loop
+        this.moretemp=[];
+        this.startupsBeforeReject='';  //maintains a copy before reject
+        this.startupsWhileReject=[];
+        this.count=0;
+        this.getData();
+      }, 100);
       
      }
    }

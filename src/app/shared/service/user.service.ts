@@ -109,6 +109,11 @@ export class UserService{
                .map(this.extractData)
                .catch(this.handleErrorObservable);
   }
+  verName(name:string)
+  {
+    return this.http.get('')
+    .flatMap((data) =>Observable.of(data.json()));
+  }
   extractData(res: Response) {
     let body = res.json();
     return body || {};

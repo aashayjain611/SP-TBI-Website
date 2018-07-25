@@ -63,7 +63,6 @@ export class NavbarComponent implements OnInit {
     //     });
     // }
     ngOnInit(){
-      // myExtObjectNew.start();
         this.listTitles = ROUTES.filter(listTitle => listTitle);
         const navbar: HTMLElement = this.element.nativeElement;
         this.logger.newSubject.subscribe(
@@ -115,8 +114,8 @@ export class NavbarComponent implements OnInit {
         elemMainPanel.style.height='100%';
     };
     sidebarToggle() {
-        // const toggleButton = this.toggleButton;
-        // const body = document.getElementsByTagName('body')[0];
+        const toggleButton = this.toggleButton;
+         const body = document.getElementsByTagName('body')[0];
         if (this.sidebarVisible === false) {
             this.sidebarOpen();
         } else {

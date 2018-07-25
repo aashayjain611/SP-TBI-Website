@@ -15,6 +15,7 @@ import { SessionStorageService } from 'ngx-webstorage';
   providers:[UserService,FormBuilder,FormsModule,SessionStorageService]
 })
 export class RegistrationComponent implements OnInit {
+  namename:string="";
   F1:{founderName:string,founderEmail:string,founderContact:number}={founderName:"",founderEmail:"",founderContact:0};
   F2:{founderName:string,founderEmail:string,founderContact:number}={founderName:"",founderEmail:"",founderContact:0};
   F3:{founderName:string,founderEmail:string,founderContact:number}={founderName:"",founderEmail:"",founderContact:0};
@@ -36,22 +37,31 @@ export class RegistrationComponent implements OnInit {
   success:boolean=false;
   f1:boolean=true;f2:boolean=false;f3:boolean=false;f4:boolean=false;f5:boolean=false;f6:boolean=false;
   reg_open:boolean=true;
-
+  count:number;
   constructor(private  userService: UserService,private router:Router, private fb : FormBuilder,public sstorage:SessionStorageService) {
     
    }
 
   ngOnInit() {
+    this.count=0;
     this.userService.getRound().subscribe((data)=>{
       if(data['statusEndRound1']=='END')
         this.reg_open=false;
     });
   }
-  
-
+  namechange(current)
+  {
+      this.namename=current;  
+  }
 
   login(f:NgForm)
   {
+    this.userService.verName(this.namename).subscribe((data)=>{
+      if(true)
+      {
+        this.namename="";
+      }
+    });
     this.u=new startupForm();
     this.F1.founderName=f.value.founder1name;
     this.F1.founderContact=parseInt(f.value.founder1contact,10);

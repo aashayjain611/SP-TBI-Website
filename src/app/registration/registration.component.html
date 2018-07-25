@@ -1,4 +1,4 @@
-<div class="main-content" style="margin-top:80px;">
+<div class="main-content" style="margin-top:120px;">
         <!-- <div class="container-fluid"> -->
 <!--            
                      <div class="card" style="width:75%;margin-left:12.5%;">
@@ -11,13 +11,13 @@
                        
                         <div class="willscroll">
                             <h6 class="heading hidden-xs">APPLICATION FORM</h6>
-                            <h6 class="heading visible-xs" style="font-size:2em;">STARTUP REGISTRATION FORM</h6>
+                            <h6 class="heading visible-xs" style="font-size:2em;">APPLICATION FORM</h6>
                             <form *ngIf="reg_open" #startup="ngForm" (ngSubmit)="login(startup)">
-                            <div [hidden]="startup.submitted">
+                            <div >
 
                                 <div class="form-group label-floating is-empty">
                                         <label class="control-label" style="font-size:20px;" for="idea">Team/Company Name</label><br /><br class="visible-xs"/>
-                                        <input class="form-control" name="name" id="name" required minlength="2" maxlength="100" [(ngModel)]="name0" #name="ngModel"/>
+                                        <input class="form-control" name="name" id="name" required minlength="2" maxlength="100" (ngModelChange)="namechange($event)" [(ngModel)]="namename" #name="ngModel"/>
                                         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
                                             <div *ngIf="name.errors.required">          
                                                 Startup name is required.
@@ -33,7 +33,7 @@
 
                                  <div class="form-group label-floating is-empty">
                                     <label class="control-label" style="font-size:20px" for="idea">Tell us about your idea</label><br /><br class="visible-xs"/>
-                                    <input class="form-control" name="idea" id="idea" required minlength="2" maxlength="150" [(ngModel)]="name1" #idea="ngModel"/>
+                                    <input class="form-control" name="idea" id="idea" required minlength="2" maxlength="150"  [(ngModel)]="name1" #idea="ngModel"/>
                                     <div *ngIf="idea.invalid && (idea.dirty || idea.touched)" class="alert alert-danger">
 
                                         <div *ngIf="idea.errors.required">
