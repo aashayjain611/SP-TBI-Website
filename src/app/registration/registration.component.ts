@@ -116,8 +116,11 @@ export class RegistrationComponent implements OnInit {
     this.userService.verName(this.namename).subscribe((data)=>{
       if(data['check']=='YES')
       {
-        console.log('Duplicate startup name');
-        this.namename="";
+        if(alert("The Startup Name already exists."))
+        {
+          console.log('Duplicate startup name');
+          this.namename="";
+        }      
       }
       else
       {
